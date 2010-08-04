@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>JSample3</title>
+</head>
+<body>
+
+<!-- For Debug purpose : Start --> 
+<SCRIPT type="text/javascript"> 
+<!--
+function openNewWin(){ 
+	newWindow = window.open(this.location.href,'_blank'); 
+} 
+
+function sourceWin(){ 
+	newWindow = window.open('','_blank'); 
+	
+	var htmlSource = document.documentElement.innerHTML;
+	var htmlSourceForDisplay = htmlSource.replace(/</g, "&lt;").replace(/>/g,"&gt;").replace(/\n/g, "<BR/>"); 
+	newWindow.document.write(htmlSourceForDisplay); 
+	newWindow.document.close();
+} 
+
+function sourceAlert() {
+	var htmlSource = document.documentElement.innerHTML;
+	alert(htmlSource);
+}
+//-->
+</SCRIPT>
+
+<CENTER>
+  <A href="javascript:sourceWin();">Show HTML source in DOM level</A><Br/>
+  <A href="javascript:sourceAlert();">Show HTML source in DOM Level to javascript alert</A>
+  <br/><br/>
+  <A href="javascript:openNewWin();">load this page on new window </A>
+</CENTER> 
+<!-- For Debug purpose : End --> 
+
+Sample 3: Error in javascript<br>
+<script type="text/javascript">
+
+var doc = document;
+var body = doc.body;
+
+body.appendChild( doc.createElement("abc") );
+
+</script>
+
+</body>
+</html>
+
