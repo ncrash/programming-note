@@ -11,3 +11,4 @@ rem https://confluence.slac.stanford.edu/pages/viewpage.action?pageId=38246
 rem  java.lang.OutOfMemory
 set MAVEN_OPTS=-Xmx1024m -XX:MaxPermSize=128m
 
+rem test
