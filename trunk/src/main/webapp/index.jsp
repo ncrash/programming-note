@@ -9,7 +9,7 @@
 <body>
 	<h1>Etc Sample</h1>
 	<ul>
-		<li><a href="${ctx}/sample/view.do">sample</a></li>
+		<li><a href="<c:url value="/sample/view.do"/>">sample</a></li>
 	</ul>
 </body>
 </html>
