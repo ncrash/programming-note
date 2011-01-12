@@ -7,6 +7,10 @@
 <title>java-code-practice-with-tdd</title>
 </head>
 <body>
+	<h1>Selenium-RC</h1>
+	<ul>
+		<li><a href="<c:url value="/jsp/selenium-rc/index.jsp"/>">index</a></li>
+	</ul>
 	<h1>Etc Sample</h1>
 	<ul>
 		<li><a href="<c:url value="/sample/view.do"/>">sample</a></li>
