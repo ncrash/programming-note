@@ -7,11 +7,6 @@
 <title>java-code-practice-with-tdd</title>
 </head>
 <body>
-	<h1>Html Validation with javascript</h1>
-	<ul>
-		<li><a href="${ctx}/jsp/link/html-validation-sample-link.jsp">Html Validation with javascript</a></li>
-	</ul>
-	
 	<h1>Etc Sample</h1>
 	<ul>
 		<li><a href="${ctx}/sample/view.do">sample</a></li>

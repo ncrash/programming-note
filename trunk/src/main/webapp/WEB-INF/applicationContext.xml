@@ -16,6 +16,4 @@
 			<value>classpath:/sample.properties</value>
 		</property>
 	</bean>
-	
-	<bean id="xhtmlValidator" class="com.tfsm.richmedia.util.xhtml.XhtmlValidator" />
 </beans>

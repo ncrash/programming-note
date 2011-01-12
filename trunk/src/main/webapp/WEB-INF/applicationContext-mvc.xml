@@ -13,15 +13,9 @@
 	</bean>
 	
 	<!-- Controller Mapping Start -->
-	<bean id="sampleController" class="com.ncrash.code.web.SampleSpringMvc1Controller">
-		<property name="viewName" value="sample/view" />
+	<bean id="sampleController" class="com.ncrash.code.web.controller.SampleSpringMvc1Controller">
 	</bean>
-	
-	<bean id="htmlValidatorController" class="com.ncrash.code.web.HtmlValidatorController">
-		<property name="viewName" value="html-validator/result" />
-		<property name="validator" ref="xhtmlValidator" />
-	</bean>
-	<!-- Controller Mapping Start -->
+	<!-- Controller Mapping End -->
 	
 	<!-- URL Mapping Start -->
 	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -31,9 +25,6 @@
 			<props>
 				<!-- Sample -->
 				<prop key="/sample/view.do">sampleController</prop>
-				
-				<!-- Html Validator -->
-				<prop key="/html/validator.do">htmlValidatorController</prop>
 			</props>
 		</property>
 	</bean>

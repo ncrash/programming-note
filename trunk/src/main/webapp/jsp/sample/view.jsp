@@ -1,4 +1,5 @@
 <%@ page language="java" errorPage="/error.jsp" pageEncoding="UTF-8" contentType="text/html;charset=utf-8" %>
+<%@ include file="/jsp/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -6,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-this page path : /AdvReport/src/main/webapp/jsp/sample/view.jsp<br/>
+this page path : /src/main/webapp/jsp/sample/view.jsp<br/>
 Hello World!!<br/>
 
 <br/>
@@ -28,6 +29,9 @@ Context Name : ${ctx}<br/>
 Date Pattern : ${datePattern}<br/>
 <c:set var="webappname"><fmt:message key="webapp.name"/></c:set>
 Webapp Name : ${webappname}<br/>
+
+<h4>web resource path</h4>
+<img style="border: 0" src="<c:url value="/images/404.jpg"/>" alt="Emerald Lake - Western Canada" />
 
 </body>
 </html>
