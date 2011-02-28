@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class FirstTest extends SeleneseTestCase {
 	@Before
 	public void setUp() throws Exception {
-		selenium = new DefaultSelenium("localhost", 4444, "*safari", "http://localhost:8080/");
+		selenium = new DefaultSelenium("localhost", 4444, "*firefox", "http://localhost:8080/");
 		selenium.start();
 	}
 
