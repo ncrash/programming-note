@@ -19,15 +19,29 @@ import org.junit.rules.TemporaryFolder;
 
 public class EncodingProfileTest {
 
+	private static final String SIMPLE_ENCODING_PROFILE_JSON = "simple-encoding-profile.json";
+	
 	@Rule
 	public TemporaryFolder folder = new TemporaryFolder(); 
 	
 	@Before
 	public void setUp() throws Exception {
 	}
-	
+
 	@Test
-	public void objectValueSet() throws Exception {
+	public void simpleDeserializationEncodingProfile() throws Exception {
+		File jsonFile = new File(getClass().getResource(SIMPLE_ENCODING_PROFILE_JSON).getFile());
+		String metadatacontent = FileUtils.readFileToString(jsonFile);
+
+	    ObjectMapper mapper = new ObjectMapper();  
+	    EncodingProfile encodingProfile =   
+	      mapper.readValue(jsonFile, EncodingProfile.class); 
+	    
+	    assertEquals(metadatacontent, mapper.defaultPrettyPrintingWriter().writeValueAsString(encodingProfile));
+	}
+
+	@Test
+	public void serializationDeserializationObjectCompare() throws Exception {
 		EncodingProfile encodingProfile = new EncodingProfile();
 		
 		encodingProfile.setProfileName("iPad(256)");
@@ -61,7 +75,7 @@ public class EncodingProfileTest {
 		g.close(); // important: will force flushing of output, close underlying output stream
 
 		File tempJsonFile = new File(folder.getRoot().getAbsolutePath() + "/temp.json");
-		File jsonFile = new File(getClass().getResource("simple-encoding-profile.json").getFile());
+		File jsonFile = new File(getClass().getResource(SIMPLE_ENCODING_PROFILE_JSON).getFile());
 		
 		String actualValue = FileUtils.readFileToString(tempJsonFile); 
 		String expectedValue = FileUtils.readFileToString(jsonFile).replaceAll("\\s+", ""); 
@@ -72,17 +86,5 @@ public class EncodingProfileTest {
 			mapper.readValue(tempJsonFile, EncodingProfile.class);
 		
 		assertReflectionEquals(encodingProfile, loaedEncodingProfile);
-	}
-	
-	@Test
-	public void simpleEncodingProfileParsing() throws Exception {
-		File jsonFile = new File(getClass().getResource("simple-encoding-profile.json").getFile());
-		String metadatacontent = FileUtils.readFileToString(jsonFile);
-
-	    ObjectMapper mapper = new ObjectMapper();  
-	    EncodingProfile encodingProfile =   
-	      mapper.readValue(jsonFile, EncodingProfile.class); 
-	    
-	    assertEquals(metadatacontent, mapper.defaultPrettyPrintingWriter().writeValueAsString(encodingProfile));
 	}
 }

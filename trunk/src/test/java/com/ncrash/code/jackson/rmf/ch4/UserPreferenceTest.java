@@ -23,6 +23,8 @@ import org.junit.rules.TemporaryFolder;
  */
 public class UserPreferenceTest {
 
+	private static final String USER_PREFERENCE_TOBE_FROM_WIKI_JSON = "user-preference-tobe-from-wiki.json";
+	
 	@Rule
 	public TemporaryFolder folder = new TemporaryFolder(); 
 	
@@ -31,7 +33,19 @@ public class UserPreferenceTest {
 	}
 	
 	@Test
-	public void objectValueSet() throws Exception {
+	public void simpleDeserializationUserPreference() throws Exception {
+		File jsonFile = new File(getClass().getResource(USER_PREFERENCE_TOBE_FROM_WIKI_JSON).getFile());
+		String metadatacontent = FileUtils.readFileToString(jsonFile);
+
+	    ObjectMapper mapper = new ObjectMapper();  
+	    UserPreference userPreference =   
+	      mapper.readValue(jsonFile, UserPreference.class);
+	    
+	    assertEquals(metadatacontent, mapper.defaultPrettyPrintingWriter().writeValueAsString(userPreference));
+	}
+	
+	@Test
+	public void serializationDeserializationObjectCompare() throws Exception {
 		UserPreference userPreference = new UserPreference();
 		
 		userPreference.setContent("cover");
@@ -111,7 +125,7 @@ public class UserPreferenceTest {
 		g.close(); // important: will force flushing of output, close underlying output stream
 
 		File tempJsonFile = new File(folder.getRoot().getAbsolutePath() + "/temp.json");
-		File jsonFile = new File(getClass().getResource("user-preference-tobe-from-wiki.json").getFile());
+		File jsonFile = new File(getClass().getResource(USER_PREFERENCE_TOBE_FROM_WIKI_JSON).getFile());
 		
 		String actualValue = FileUtils.readFileToString(tempJsonFile); 
 		String expectedValue = FileUtils.readFileToString(jsonFile).replaceAll("\\s+", ""); 
@@ -122,17 +136,5 @@ public class UserPreferenceTest {
 			mapper.readValue(tempJsonFile, UserPreference.class);
 		
 		assertReflectionEquals(userPreference, loaedUserPreference);
-	}
-	
-	@Test
-	public void simpleEncodingProfileParsing() throws Exception {
-		File jsonFile = new File(getClass().getResource("user-preference-tobe-from-wiki.json").getFile());
-		String metadatacontent = FileUtils.readFileToString(jsonFile);
-
-	    ObjectMapper mapper = new ObjectMapper();  
-	    UserPreference userPreference =   
-	      mapper.readValue(jsonFile, UserPreference.class);
-	    
-	    assertEquals(metadatacontent, mapper.defaultPrettyPrintingWriter().writeValueAsString(userPreference));
 	}
 }
