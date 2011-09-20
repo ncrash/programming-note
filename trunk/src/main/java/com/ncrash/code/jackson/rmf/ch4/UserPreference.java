@@ -1,103 +1,61 @@
 package com.ncrash.code.jackson.rmf.ch4;
 
+import java.util.Collection;
+
 public class UserPreference {
 
-	private static final long serialVersionUID = 1L;
+	public String userId = "";
+	public String wmode = "";
+	public String content = "";
+	public String countondownload = "false";
+	public String encoding_notify = "";
+	public Collection<EncodingProfile> encoding_profiles;
 
-	private String userId = "";
-	private String wmode = "";
-	private String content = "";
-	private String countondownload = "false";
-	private String encoding_notify = "";
-	private EncodingProfile encoding_profile;
-
-	/**
-	 * @param userId
-	 *            the userId to set
-	 */
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	/**
-	 * @return the userId
-	 */
 	public String getUserId() {
 		return userId;
 	}
 
-	/**
-	 * @param wmode
-	 *            the wmode to set
-	 */
-	public void setWmode(String wmode) {
-		this.wmode = wmode;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
-	/**
-	 * @return the wmode
-	 */
 	public String getWmode() {
 		return wmode;
 	}
 
-	/**
-	 * @param content
-	 *            the content to set
-	 */
-	public void setContent(String content) {
-		this.content = content;
+	public void setWmode(String wmode) {
+		this.wmode = wmode;
 	}
 
-	/**
-	 * @return the content
-	 */
 	public String getContent() {
 		return content;
 	}
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	/**
-	 * @param countondownload
-	 *            the countondownload to set
-	 */
-	public void setCountondownload(String countondownload) {
-		this.countondownload = countondownload;
-	}
-
-	/**
-	 * @return the countondownload
-	 */
 	public String getCountondownload() {
 		return countondownload;
 	}
 
-	public void setEncoding_notify(String encoding_notify) {
-		this.encoding_notify = encoding_notify;
+	public void setCountondownload(String countondownload) {
+		this.countondownload = countondownload;
 	}
 
 	public String getEncoding_notify() {
 		return encoding_notify;
 	}
 
-	public void setEncoding_profile(EncodingProfile encoding_profile) {
-		this.encoding_profile = encoding_profile;
+	public void setEncoding_notify(String encoding_notify) {
+		this.encoding_notify = encoding_notify;
 	}
 
-	public EncodingProfile getEncoding_profile() {
-		return encoding_profile;
+	public Collection<EncodingProfile> getEncoding_profiles() {
+		return encoding_profiles;
 	}
 
-	public String toString() {
-		return "UserPreference [userId=" + userId + ", wmode=" + wmode
-				+ ", content=" + content + ", countondownload="
-				+ countondownload + ", encoding_notify=" + encoding_notify
-				+ ", encoding_profile=" + encoding_profile + "]";
+	public void setEncoding_profiles(Collection<EncodingProfile> encoding_profiles) {
+		this.encoding_profiles = encoding_profiles;
 	}
 }

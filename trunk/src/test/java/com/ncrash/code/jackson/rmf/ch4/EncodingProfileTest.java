@@ -1,6 +1,7 @@
 package com.ncrash.code.jackson.rmf.ch4;
 
 import static org.junit.Assert.assertEquals;
+import static org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -66,6 +67,11 @@ public class EncodingProfileTest {
 		String expectedValue = FileUtils.readFileToString(jsonFile).replaceAll("\\s+", ""); 
 
 		assertEquals("compare with generated json and fixture json", expectedValue, actualValue);
+		
+		EncodingProfile loaedEncodingProfile =   
+			mapper.readValue(tempJsonFile, EncodingProfile.class);
+		
+		assertReflectionEquals(encodingProfile, loaedEncodingProfile);
 	}
 	
 	@Test
