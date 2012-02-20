@@ -1,6 +1,7 @@
 package com.ncrash.code.jackson.rmf.ch4;
 
 public enum EncodingProfileVideoCodec {
+	H264("h264", "h.264"),
 	MPEG4("mpeg4", "mpeg4"),
 	LIBX264("libx264", "libx264");
 
