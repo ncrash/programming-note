@@ -6,7 +6,11 @@
 	<name>java-code-practice-with-tdd</name>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<description>테스트 코드를 살찌우면서 java programming 역량을 키우기 위해 시작합니다 </description>
+	<description>
+		테스트 코드를 살찌우면서 java programming 역량을 키우기 위해 시작합니다 
+		svn에서 Git으로 저장소를 변경했습니다
+		github private repository를 쓰고 싶었으나 비용이 들어 무료로 사용할 수 있는 Dropbox를 이용해 git 저장소 활용합니다
+	</description>
 	<dependencies>
 		<!-- rmf v3 poc json start -->
 		<dependency>
