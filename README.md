@@ -28,5 +28,5 @@ source code를 checkout 받아서 test 돌리는 방법 정리
     * j2ee perspective open
     * project properties open
 		* Project Facets -> Dynamic Web Module 2.4 선택
-			* Ok 셋팅 적용하면 web content directory 물어봄
+		* Ok 셋팅 적용하면 web content directory 물어봄
 			* src\main\webapp
