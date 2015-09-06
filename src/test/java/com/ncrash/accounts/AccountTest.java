@@ -2,8 +2,7 @@ package com.ncrash.accounts;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by ncrash on 2015. 9. 5..
@@ -14,9 +13,9 @@ public class AccountTest {
     public void testAccount() throws Exception {
         Account account = new Account();
 
-        account.setLoginId("ncrash");
+        account.setUsername("ncrash");
         account.setPassword("kdk");
 
-        assertEquals(account.getLoginId(), "ncrash");
+        assertEquals(account.getUsername(), "ncrash");
     }
 }
