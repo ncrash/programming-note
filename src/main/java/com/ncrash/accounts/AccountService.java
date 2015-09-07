@@ -19,14 +19,14 @@ public class AccountService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public Account createAccount(AccountDto.Create dto) {
-//        Account account = new Account();
-//        account.setUsername(dto.getUsername());
-//        account.setPassword(dto.getPassword());
+    public Account createAccount(AccountDto.Create dto) throws UserDuplicatedException {
         final Account account = modelMapper.map(dto, Account.class);
+        final String username = dto.getUsername();
 
-        // TODO validation 추가
-        // 유효한 username인지 판단
+        if (accountRepository.findByUsername(username) != null) {
+            throw new UserDuplicatedException(username);
+        }
+
         // TODO password 암호화 핵심
         Date now = new Date();
         account.setJoined(now);
