@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.core.Is.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -37,6 +38,9 @@ public class AccountControllerTest {
 
     @Autowired
     ObjectMapper objectMapper;
+
+    @Autowired
+    AccountService accountService;
 
     @Before
     public void setUp() throws Exception {
@@ -82,5 +86,40 @@ public class AccountControllerTest {
 
         result.andDo(print());
         result.andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void getAccounts() throws Exception {
+        final AccountDto.Create createDto = new AccountDto.Create();
+        createDto.setUsername("ncrash");
+        createDto.setPassword("password");
+
+        accountService.createAccount(createDto);
+
+        /*
+        {
+            "content": [
+                {
+                    "fullname": null,
+                    "id": 1,
+                    "joined": 1441719422647,
+                    "updated": 1441719422647,
+                    "username": "ncrash"
+                }
+            ],
+            "first": true,
+            "last": true,
+            "number": 0,
+            "numberOfElements": 1,
+            "size": 20,
+            "sort": null,
+            "totalElements": 1,
+            "totalPages": 1
+        }
+         */
+        final ResultActions result = mockMvc.perform(get("/accounts"));
+
+        result.andDo(print());
+        result.andExpect(status().isOk());
     }
 }
