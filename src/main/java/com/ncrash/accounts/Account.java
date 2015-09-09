@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -17,6 +18,7 @@ import lombok.Data;
  */
 @Entity
 @Data
+@Builder
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

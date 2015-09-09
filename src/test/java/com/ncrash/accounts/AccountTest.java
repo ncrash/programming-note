@@ -11,10 +11,7 @@ public class AccountTest {
 
     @Test
     public void testAccount() throws Exception {
-        Account account = new Account();
-
-        account.setUsername("ncrash");
-        account.setPassword("kdk");
+        final Account account = Account.builder().username("ncrash").password("kdk").build();
 
         assertEquals(account.getUsername(), "ncrash");
     }
