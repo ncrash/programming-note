@@ -7,11 +7,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Created by ncrash on 2015. 9. 6..
  */
 @Service
 @Transactional
+@Slf4j
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
@@ -24,6 +27,7 @@ public class AccountService {
         final String username = dto.getUsername();
 
         if (accountRepository.findByUsername(username) != null) {
+            log.error("duplicated username : {}", username);
             throw new UserDuplicatedException(username);
         }
 
