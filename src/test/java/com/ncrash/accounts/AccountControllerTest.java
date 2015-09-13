@@ -14,11 +14,13 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -29,6 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes  = Application.class)
 @WebAppConfiguration
+@Transactional
 public class AccountControllerTest {
 
     MockMvc mockMvc;
@@ -47,11 +50,16 @@ public class AccountControllerTest {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
     }
 
+    private AccountDto.Create accountCreateDto() {
+        final AccountDto.Create createDto = new AccountDto.Create();
+        createDto.setUsername("daekwon");
+        createDto.setPassword("password");
+        return createDto;
+    }
+
     @Test
     public void createAccount() throws Exception {
-        final AccountDto.Create createDto = new AccountDto.Create();
-        createDto.setUsername("ncrash");
-        createDto.setPassword("password");
+        final AccountDto.Create createDto = accountCreateDto();
 
         final ResultActions result = mockMvc.perform(post("/accounts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -61,7 +69,7 @@ public class AccountControllerTest {
         result.andExpect(status().isCreated());
 
         //{"id":1,"username":"ncrash","fullname":null,"joined":1441633566578,"updated":1441633566578}
-        result.andExpect(jsonPath("$.username", is("ncrash")));
+        result.andExpect(jsonPath("$.username", is("daekwon")));
 
         final ResultActions duplicate = mockMvc.perform(post("/accounts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -86,13 +94,12 @@ public class AccountControllerTest {
 
         result.andDo(print());
         result.andExpect(status().isBadRequest());
+        result.andExpect(jsonPath("$.code", is("bad.request")));
     }
 
     @Test
     public void getAccounts() throws Exception {
-        final AccountDto.Create createDto = new AccountDto.Create();
-        createDto.setUsername("ncrash");
-        createDto.setPassword("password");
+        final AccountDto.Create createDto = accountCreateDto();
 
         accountService.createAccount(createDto);
 
@@ -121,5 +128,34 @@ public class AccountControllerTest {
 
         result.andDo(print());
         result.andExpect(status().isOk());
+    }
+
+    @Test
+    public void getAccount() throws Exception {
+        final AccountDto.Create createDto = accountCreateDto();
+        final Account account = accountService.createAccount(createDto);
+
+        ResultActions result = mockMvc.perform(get("/accounts/" + account.getId()));
+
+        result.andDo(print());
+        result.andExpect(status().isOk());
+    }
+
+    @Test
+    public void updateAccount() throws Exception {
+        final AccountDto.Create createDto = accountCreateDto();
+        final Account account = accountService.createAccount(createDto);
+
+        final AccountDto.Update updateDto = new AccountDto.Update();
+        updateDto.setFullname("daekwon kang");
+        updateDto.setPassword("pass");
+
+        final ResultActions result = mockMvc.perform(put("/accounts/" + account.getId())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(updateDto)));
+
+        result.andDo(print());
+        result.andExpect(status().isOk());
+        result.andExpect(jsonPath("$.fullname", is("daekwon kang")));
     }
 }

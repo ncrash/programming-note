@@ -1,6 +1,7 @@
 package com.ncrash.accounts;
 
 import org.junit.Test;
+import org.modelmapper.ModelMapper;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,10 +10,14 @@ import static org.junit.Assert.assertEquals;
  */
 public class AccountTest {
 
+    ModelMapper modelMapper = new ModelMapper();
+
     @Test
     public void testAccount() throws Exception {
-        final Account account = Account.builder().username("ncrash").password("kdk").build();
+        final Account account = new Account();
 
+        account.setUsername("ncrash");
+        account.setPassword("kdk");
         assertEquals(account.getUsername(), "ncrash");
     }
 }

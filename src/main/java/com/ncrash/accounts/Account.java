@@ -18,7 +18,6 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Builder
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

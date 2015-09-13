@@ -22,13 +22,13 @@ public class AccountService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public Account createAccount(AccountDto.Create dto) throws UserDuplicatedException {
+    public Account createAccount(AccountDto.Create dto) throws AccountDuplicatedException {
         final Account account = modelMapper.map(dto, Account.class);
         final String username = dto.getUsername();
 
         if (accountRepository.findByUsername(username) != null) {
             log.error("duplicated username : {}", username);
-            throw new UserDuplicatedException(username);
+            throw new AccountDuplicatedException(username);
         }
 
         // TODO password 암호화 핵심
@@ -38,4 +38,22 @@ public class AccountService {
 
         return accountRepository.save(account);
     }
+
+    public Account updateAccount(Long id, AccountDto.Update updateDto) {
+        final Account account = this.getAccount(id);
+        account.setFullName(updateDto.getFullname());
+        account.setPassword(updateDto.getPassword());
+
+        return accountRepository.save(account);
+    }
+
+    public Account getAccount(Long id) {
+        final Account account = accountRepository.findOne(id);
+        if (account == null) {
+            throw new AccountNotFoundException(id);
+        }
+
+        return account;
+    }
+
 }

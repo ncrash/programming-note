@@ -8,10 +8,10 @@ import lombok.Data;
  * 토스 4장 예외처리 참고해서 코드정리
  */
 @Data
-public class UserDuplicatedException extends RuntimeException {
+public class AccountDuplicatedException extends RuntimeException {
     private String username;
 
-    public UserDuplicatedException(String username) {
+    public AccountDuplicatedException(String username) {
         this.username = username;
     }
 }
