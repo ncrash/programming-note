@@ -2,6 +2,7 @@ package com.ncrash.accounts;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,9 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     private ModelMapper modelMapper;
 
     public Account createAccount(AccountDto.Create dto) throws AccountDuplicatedException {
@@ -31,7 +35,8 @@ public class AccountService {
             throw new AccountDuplicatedException(username);
         }
 
-        // TODO password 암호화 핵심
+        account.setPassword(passwordEncoder.encode(account.getPassword()));
+
         Date now = new Date();
         account.setJoined(now);
         account.setUpdated(now);
@@ -42,7 +47,7 @@ public class AccountService {
     public Account updateAccount(Long id, AccountDto.Update updateDto) {
         final Account account = this.getAccount(id);
         account.setFullName(updateDto.getFullname());
-        account.setPassword(updateDto.getPassword());
+        account.setPassword(passwordEncoder.encode(account.getPassword()));
 
         return accountRepository.save(account);
     }
