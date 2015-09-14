@@ -133,4 +133,11 @@ public class AccountController {
 
         return new ResponseEntity<>(modelMapper.map(updatedAccount, AccountDto.Response.class), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/accounts/{id}", method = DELETE)
+    public ResponseEntity deleteAccount(@PathVariable Long id) {
+        accountService.deleteAccount(id);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

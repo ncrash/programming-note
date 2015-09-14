@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.core.Is.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -157,5 +158,19 @@ public class AccountControllerTest {
         result.andDo(print());
         result.andExpect(status().isOk());
         result.andExpect(jsonPath("$.fullname", is("daekwon kang")));
+    }
+
+    @Test
+    public void deleteAccount() throws Exception {
+        final ResultActions invalidDeleteRequest = mockMvc.perform(delete("/accounts/1"));
+        invalidDeleteRequest.andDo(print());
+        invalidDeleteRequest.andExpect(status().isBadRequest());
+
+        final AccountDto.Create createDto = accountCreateDto();
+        final Account account = accountService.createAccount(createDto);
+
+        final ResultActions validResult = mockMvc.perform(delete("/accounts/" + account.getId()));
+        validResult.andDo(print());
+        validResult.andExpect(status().isNoContent());
     }
 }
