@@ -8,21 +8,60 @@
 
 plugins {
     // Apply the java plugin to add support for Java
-    id 'java'
-
-    // Apply the application plugin to add support for building an application
-    id 'application'
+    id 'java-library'
 }
-
-// Define the main class for the application
-mainClassName = 'App'
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:23.0'
+    compile "org.codehaus.jackson:jackson-core-asl:1.8.0"
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.8.0"
+    compile "javax.validation:validation-api:1.0.0.GA"
+    compile "org.hibernate:hibernate-validator:4.0.2.GA"
+    compile "struts:struts:1.2.7"
+    compile "net.sf.jfig:jfig:1.5.2"
+    compile "org.springframework:spring-core:2.5.5"
+    compile "org.springframework:spring-jdbc:2.5.5"
+    compile "org.springframework:spring-web:2.5.5"
+    compile "org.springframework:spring-webmvc:2.5.5"
+    compile (group: 'log4j', name: 'log4j', version: '1.2.15') {
+        exclude group: 'javax.jms', module: 'jms'
+        exclude group: 'com.sun.jdmk', module: 'jmxtools'
+        exclude group: 'com.sun.jmx', module: 'jmxri'
+    }
+    compile "junit:junit:4.7"
+    compile "commons-lang:commons-lang:2.4"
+    compile "commons-logging:commons-logging:1.1.1"
+    compile "org.apache.ant:ant:1.7.1"
+    compile "org.safehaus.jug:jug:2.0.0:lgpl"
+    compile "org.slf4j:slf4j-log4j12:1.5.8"
+    compile "net.sf.jtidy:jtidy:r938"
+    compile "javax.servlet:servlet-api:2.4"
+    compile "javax.servlet:jstl:1.1.2"
+    compile "taglibs:standard:1.1.2"
+    compile "org.json:json:20080701"
+    compile "org.mortbay.jetty:jetty:6.1.22"
+    compile "net.sourceforge.htmlunit:htmlunit:2.7"
+    compile "org.seleniumhq.webdriver:webdriver-htmlunit:0.9.7376"
+    compile "org.seleniumhq.webdriver:webdriver-firefox:0.9.7376"
+    compile "org.seleniumhq.webdriver:webdriver-ie:0.9.7376"
+    compile "com.sun:jimi:1.0"
+    compile "com.thoughtworks.xstream:xstream:1.3.1"
+    compile "org.codehaus.jettison:jettison:1.2"
+    compile "javamaildir:javamaildir:0.6"
+    compile "hsqldb:hsqldb:1.8.0.10"
+    compile "commons-dbcp:commons-dbcp:1.3"
+    compile "com.flagstone:transform:3.0"
+    compile "org.seleniumhq.selenium:selenium:2.0b1"
+    compile "org.seleniumhq.selenium:selenium-server:2.0b1"
+    compile "com.atomikos:transactions-jta:3.2.3"
+    compile "com.github.mjeanroy:exiftool-lib:1.1"
+    compile "org.unitils:unitils:2.4"
+    compile "org.slf4j:slf4j-api:1.5.8"
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
+    testCompile "org.springframework:spring-test:2.5.5"
 }
 
 // In this section you declare where to find the dependencies of your project
@@ -30,4 +69,16 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    maven {
+        url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
+    }
+    maven {
+        url "https://maven.atlassian.com/3rdparty"
+    }
+    maven {
+        url "http://central.maven.org/maven2/"
+    }
+    maven {
+        url "http://repository.mxhero.com/nexus/content/repositories/org.mxhero.releases/"
+    }
 }
