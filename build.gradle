@@ -9,6 +9,7 @@
 plugins {
     // Apply the java plugin to add support for Java
     id 'java-library'
+    id "com.diffplug.gradle.spotless" version "3.13.0"
 }
 
 configurations {
@@ -96,5 +97,13 @@ repositories {
     }
     maven {
         url "http://repository.mxhero.com/nexus/content/repositories/org.mxhero.releases/"
+    }
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+        // you can then layer other format steps, such as
+//        licenseHeaderFile 'spotless.license.java'
     }
 }
