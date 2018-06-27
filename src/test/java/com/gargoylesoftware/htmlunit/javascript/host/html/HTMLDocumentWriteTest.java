@@ -21,6 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -851,6 +852,7 @@ public class HTMLDocumentWriteTest extends WebDriverTestCase {
      * be proxied (i.e. "live").
      * @throws Exception if an error occurs
      */
+    @Ignore
     @Test
     @NotYetImplemented
     @Alerts(FF = { "<form></form>", "[object HTMLFormElement]" }, IE = { "<FORM></FORM>", "[object]" })
@@ -873,6 +875,7 @@ public class HTMLDocumentWriteTest extends WebDriverTestCase {
      * be proxied (i.e. "live").
      * @throws Exception if an error occurs
      */
+    @Ignore
     @Test
     @NotYetImplemented
     @Alerts(FF = { "<form></form>", "[object HTMLFormElement]" }, IE = { "<FORM></FORM>", "[object]" })
