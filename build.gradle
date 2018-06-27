@@ -19,6 +19,9 @@ configurations {
     }
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:23.0'
@@ -45,7 +48,7 @@ dependencies {
     compile "taglibs:standard:1.1.2"
     compile "org.json:json:20080701"
     compile "org.mortbay.jetty:jetty:6.1.22"
-    compile "net.sourceforge.htmlunit:htmlunit:2.7"
+    compile "net.sourceforge.htmlunit:htmlunit:2.9"
     compile "org.seleniumhq.webdriver:webdriver-htmlunit:0.9.7376"
     compile "org.seleniumhq.webdriver:webdriver-firefox:0.9.7376"
     compile "org.seleniumhq.webdriver:webdriver-ie:0.9.7376"

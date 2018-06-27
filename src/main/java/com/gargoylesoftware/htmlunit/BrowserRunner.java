@@ -68,7 +68,6 @@ public class BrowserRunner extends Suite {
                     runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.INTERNET_EXPLORER_6, false));
                     runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.INTERNET_EXPLORER_7, false));
                     runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.INTERNET_EXPLORER_8, false));
-                    runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.FIREFOX_2, false));
                     runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.FIREFOX_3, false));
                 }
                 if (property.contains("ie6")) {
@@ -80,9 +79,6 @@ public class BrowserRunner extends Suite {
                 if (property.contains("ie8")) {
                     runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.INTERNET_EXPLORER_8, true));
                 }
-                if (property.contains("ff2")) {
-                    runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.FIREFOX_2, true));
-                }
                 if (property.contains("ff3")) {
                     runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.FIREFOX_3, true));
                 }
@@ -91,7 +87,6 @@ public class BrowserRunner extends Suite {
                 runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.INTERNET_EXPLORER_6, false));
                 runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.INTERNET_EXPLORER_7, false));
                 runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.INTERNET_EXPLORER_8, false));
-                runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.FIREFOX_2, false));
                 runners_.add(new BrowserVersionClassRunner(klass, BrowserVersion.FIREFOX_3, false));
             }
         }
