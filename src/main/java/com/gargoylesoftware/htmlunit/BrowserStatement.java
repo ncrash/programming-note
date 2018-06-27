@@ -15,7 +15,6 @@
 package com.gargoylesoftware.htmlunit;
 
 import java.lang.reflect.Method;
-
 import org.junit.runners.model.Statement;
 
 /**
@@ -26,56 +25,62 @@ import org.junit.runners.model.Statement;
  */
 class BrowserStatement extends Statement {
 
-    private Statement next_;
-    private final boolean shouldFail_;
-    private final boolean notYetImplemented_;
-    private final Method method_;
-    private final String browserVersionString_;
+  private Statement next_;
+  private final boolean shouldFail_;
+  private final boolean notYetImplemented_;
+  private final Method method_;
+  private final String browserVersionString_;
 
-    BrowserStatement(final Statement next, final Method method, final boolean shouldFail,
-            final boolean notYetImplemented, final String browserVersionString) {
-        next_ = next;
-        method_ = method;
-        shouldFail_ = shouldFail;
-        notYetImplemented_ = notYetImplemented;
-        browserVersionString_ = browserVersionString;
-    }
+  BrowserStatement(
+      final Statement next,
+      final Method method,
+      final boolean shouldFail,
+      final boolean notYetImplemented,
+      final String browserVersionString) {
+    next_ = next;
+    method_ = method;
+    shouldFail_ = shouldFail;
+    notYetImplemented_ = notYetImplemented;
+    browserVersionString_ = browserVersionString;
+  }
 
-    @Override
-    public void evaluate() throws Throwable {
-        Exception toBeThrown = null;
-        try {
-            next_.evaluate();
-            if (shouldFail_) {
-                final String errorMessage;
-                if (browserVersionString_ == null) {
-                    errorMessage = method_.getName() + " is marked to fail with "
-                        + browserVersionString_ + ", but succeeds";
-                }
-                else {
-                    errorMessage = method_.getName() + " is marked to fail, but succeeds";
-                }
-                toBeThrown = new Exception(errorMessage);
-            }
-            else if (notYetImplemented_) {
-                final String errorMessage;
-                if (browserVersionString_ == null) {
-                    errorMessage = method_.getName() + " is marked as not implemented but already works";
-                }
-                else {
-                    errorMessage = method_.getName() + " is marked as not implemented with "
-                        + browserVersionString_ + " but already works";
-                }
-                toBeThrown = new Exception(errorMessage);
-            }
+  @Override
+  public void evaluate() throws Throwable {
+    Exception toBeThrown = null;
+    try {
+      next_.evaluate();
+      if (shouldFail_) {
+        final String errorMessage;
+        if (browserVersionString_ == null) {
+          errorMessage =
+              method_.getName()
+                  + " is marked to fail with "
+                  + browserVersionString_
+                  + ", but succeeds";
+        } else {
+          errorMessage = method_.getName() + " is marked to fail, but succeeds";
         }
-        catch (final Throwable e) {
-            if (!shouldFail_ && !notYetImplemented_) {
-                throw e;
-            }
+        toBeThrown = new Exception(errorMessage);
+      } else if (notYetImplemented_) {
+        final String errorMessage;
+        if (browserVersionString_ == null) {
+          errorMessage = method_.getName() + " is marked as not implemented but already works";
+        } else {
+          errorMessage =
+              method_.getName()
+                  + " is marked as not implemented with "
+                  + browserVersionString_
+                  + " but already works";
         }
-        if (toBeThrown != null) {
-            throw toBeThrown;
-        }
+        toBeThrown = new Exception(errorMessage);
+      }
+    } catch (final Throwable e) {
+      if (!shouldFail_ && !notYetImplemented_) {
+        throw e;
+      }
     }
+    if (toBeThrown != null) {
+      throw toBeThrown;
+    }
+  }
 }
