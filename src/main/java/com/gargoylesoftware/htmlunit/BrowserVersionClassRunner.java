@@ -17,10 +17,7 @@ package com.gargoylesoftware.htmlunit;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Method;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.internal.runners.model.ReflectiveCallable;
@@ -87,14 +84,6 @@ class BrowserVersionClassRunner extends BlockJUnit4ClassRunner {
                 }
                 else if (isDefined(alerts.IE())) {
                     expectedAlerts = alerts.IE();
-                }
-            }
-            else if (browserVersion_ == BrowserVersion.FIREFOX_2) {
-                if (isDefined(alerts.FF2())) {
-                    expectedAlerts = alerts.FF2();
-                }
-                else if (isDefined(alerts.FF())) {
-                    expectedAlerts = alerts.FF();
                 }
             }
             else if (browserVersion_ == BrowserVersion.FIREFOX_3) {
@@ -192,12 +181,6 @@ class BrowserVersionClassRunner extends BlockJUnit4ClassRunner {
                 methods.remove(i--);
             }
         }
-        final Comparator<FrameworkMethod> comparator = new Comparator<FrameworkMethod>() {
-            public int compare(final FrameworkMethod fm1, final FrameworkMethod fm2) {
-                return fm1.getName().compareTo(fm2.getName());
-            }
-        };
-        Collections.sort(methods, comparator);
         testMethods_ = methods;
         return testMethods_;
     }
@@ -250,12 +233,6 @@ class BrowserVersionClassRunner extends BlockJUnit4ClassRunner {
 
                 case FF:
                     if (browserVersion_.isFirefox()) {
-                        return true;
-                    }
-                    break;
-
-                case FF2:
-                    if (browserVersion_ == BrowserVersion.FIREFOX_2) {
                         return true;
                     }
                     break;
