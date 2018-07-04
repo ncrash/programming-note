@@ -183,11 +183,6 @@ dependencies {
     compile "org.codehaus.jackson:jackson-core-asl:1.8.0"
     compile "org.codehaus.jackson:jackson-mapper-asl:1.8.0"
     compile "javax.validation:validation-api:1.0.0.GA"
-    //compile "org.hibernate:hibernate-validator:4.0.2.GA"
-
-// https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
-compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.3.2.Final'
-
     compile "struts:struts:1.2.7"
     compile "net.sf.jfig:jfig:1.5.2"
     compile "org.springframework:spring-core:2.5.5"
