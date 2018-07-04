@@ -51,9 +51,7 @@ configure(allprojects.findAll { allprojects -> allprojects.name.contains('-') })
     // 의존성 라이브러리 저장소
     repositories {
         jcenter()
-        flatDir {
-            dirs 'libs'
-        }
+        mavenCentral()
         maven {
             url "http://repo.spring.io/plugins-release/"
         }
@@ -62,9 +60,6 @@ configure(allprojects.findAll { allprojects -> allprojects.name.contains('-') })
         }
         maven {
             url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
-        }
-        maven {
-            url "http://central.maven.org/maven2/"
         }
         maven {
             url "http://repository.mxhero.com/nexus/content/repositories/org.mxhero.releases/"
