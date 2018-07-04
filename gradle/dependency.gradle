@@ -1,0 +1,232 @@
+//project('foundation:mir-boot-config') {
+//    dependencies {
+//        // Spring Boot
+//        compile 'org.springframework.boot:spring-boot-starter'
+//        compile 'org.springframework.boot:spring-boot-starter-web'
+//        compile 'org.springframework.boot:spring-boot-starter-test'
+//
+//        // Lombok
+//        compile "org.projectlombok:lombok"
+//
+//        // http://mvnrepository.com/artifact/com.univocity/univocity-parsers
+//        compile group: 'com.univocity', name: 'univocity-parsers', version: '2.1.2'
+//
+//        // http://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+//        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+//
+//        // http://mvnrepository.com/artifact/com.opencsv/opencsv
+//        compile group: 'com.opencsv', name: 'opencsv', version: '3.8'
+//
+//        // http://mvnrepository.com/artifact/joda-time/joda-time
+//        compile group: 'joda-time', name: 'joda-time', version: '2.9.4'
+//
+//        // http://mvnrepository.com/artifact/joda-time/joda-time-hibernate
+//        compile group: 'joda-time', name: 'joda-time-hibernate', version: '1.4'
+//
+//        // http://mvnrepository.com/artifact/joda-time/joda-time-jsptags
+//        compile group: 'joda-time', name: 'joda-time-jsptags', version: '1.1.1'
+//
+//        // http://mvnrepository.com/artifact/org.assertj/assertj-core
+//        compile group: 'org.assertj', name: 'assertj-core', version: '3.4.1'
+//
+//        // http://mvnrepository.com/artifact/org.unitils/unitils-core
+//        compile group: 'org.unitils', name: 'unitils-core', version: '3.4.2'
+//
+//        // http://mvnrepository.com/artifact/org.jsoup/jsoup
+//        compile group: 'org.jsoup', name: 'jsoup', version: '1.9.2'
+//
+//        // http://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on
+//        compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.54'
+//
+//        // http://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxws
+//        compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '3.1.6'
+//
+//        // http://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http
+//        compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: '3.1.6'
+//
+//        // http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+//        compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.7.4'
+//
+//        // http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
+//        compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.7.4'
+//
+//        // http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+//        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.7.4'
+//
+//        // http://mvnrepository.com/artifact/commons-io/commons-io
+//        compile group: 'commons-io', name: 'commons-io', version: '2.5'
+//
+//        // http://mvnrepository.com/artifact/org.hsqldb/hsqldb
+//        compile group: 'org.hsqldb', name: 'hsqldb', version: '2.3.4'
+//
+//        // http://mvnrepository.com/artifact/org.apache.poi/poi
+//        compile group: 'org.apache.poi', name: 'poi', version: '3.10.1'
+//
+//        // http://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+//        compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.10.1'
+//
+//        // http://mvnrepository.com/artifact/javax.validation/validation-api
+//        compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
+//
+//        // http://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+//        compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+//
+//        compile files('libs/simple-crypt-1.1.0.jar')
+//    }
+//
+//    wsdl2java{
+//        wsdlsToGenerate = [
+//                ['-client',"https://api.naver.com/SearchAd/v3_0/ClickChoiceService?wsdl"]
+//        ]
+//        generatedWsdlDir = file("$projectDir/generatedsources")
+//        wsdlDir = file("$projectDir/src/main/resources/wsdl")
+//        locale = Locale.ENGLISH
+//    }
+//
+//    wsdl2javaExt {
+//        cxfVersion = "3.1.6"
+//    }
+//
+//}
+//
+//project('foundation:mir-boot-web-config') {
+//    dependencies {
+//        compile project(':foundation:mir-boot-config')
+//        // Spring Boot
+//        compile 'org.springframework.boot:spring-boot-starter-mustache'
+//        compile 'org.springframework.boot:spring-boot-starter-undertow'
+//    }
+//}
+//
+//project('generated:mir-jaxb') {
+//    dependencies {
+//
+//    }
+//}
+//
+//project('datastore:mir-data-rdbms') {
+//    dependencies {
+//        compile project(':foundation:mir-boot-config')
+//
+//        compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+//
+//        // http://mvnrepository.com/artifact/com.mysema.querydsl/querydsl-jpa
+//        compile group: 'com.mysema.querydsl', name: 'querydsl-jpa', version: '3.7.3'
+//
+//        // http://mvnrepository.com/artifact/com.mysema.querydsl/querydsl-apt
+//        compile "com.mysema.querydsl:querydsl-apt:3.7.3:jpa" // Magic happens here
+//
+//        // http://mvnrepository.com/artifact/com.mysema.querydsl/querydsl-core
+//        compile group: 'com.mysema.querydsl', name: 'querydsl-core', version: '3.7.3'
+//    }
+//}
+//
+//project('datastore:mir-data-caches') {
+//    dependencies {
+//        compile project(':foundation:mir-boot-config')
+//    }
+//}
+//
+//project('datastore:mir-data-multistore') {
+//    dependencies {
+//        compile project(':datastore:mir-data-rdbms')
+//        compile project(':datastore:mir-data-caches')
+//    }
+//}
+//
+//project('application:mir-service-web') {
+//    dependencies {
+//        compile project(':foundation:mir-boot-config')
+//        compile project(':datastore:mir-data-multistore')
+//    }
+//}
+//
+//project('application:mir-batch-appl') {
+//    dependencies {
+//        compile project(':foundation:mir-boot-config')
+//        compile project(':datastore:mir-data-multistore')
+//    }
+//}
+//
+//project('application:mir-daemon-appl') {
+//    dependencies {
+//        compile project(':foundation:mir-boot-config')
+//        compile project(':datastore:mir-data-multistore')
+//    }
+//}
+//
+//project('application:mir-backoffice-web') {
+//    dependencies {
+//        compile project(':foundation:mir-boot-web-config')
+//        compile project(':datastore:mir-data-multistore')
+//    }
+//}
+//
+//project('application:mir-advertiser-web') {
+//    dependencies {
+//        compile project(':foundation:mir-boot-web-config')
+//        compile project(':datastore:mir-data-multistore')
+//    }
+//}
+//
+//project('application:mir-docs-web') {
+//    dependencies {
+//        compile project(':foundation:mir-boot-web-config')
+//        compile project(':datastore:mir-data-multistore')
+//    }
+//}
+//
+
+dependencies {
+    // This dependency is found on compile classpath of this component and consumers.
+    compile 'com.google.guava:guava:23.0'
+    compile "org.codehaus.jackson:jackson-core-asl:1.8.0"
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.8.0"
+    compile "javax.validation:validation-api:1.0.0.GA"
+    //compile "org.hibernate:hibernate-validator:4.0.2.GA"
+
+// https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
+compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.3.2.Final'
+
+    compile "struts:struts:1.2.7"
+    compile "net.sf.jfig:jfig:1.5.2"
+    compile "org.springframework:spring-core:2.5.5"
+    compile "org.springframework:spring-jdbc:2.5.5"
+    compile "org.springframework:spring-web:2.5.5"
+    compile "org.springframework:spring-webmvc:2.5.5"
+    compile "log4j:log4j:1.2.15"
+    compile "commons-lang:commons-lang:2.4"
+    compile "commons-logging:commons-logging:1.1.1"
+    compile "org.apache.ant:ant:1.7.1"
+    compile "org.safehaus.jug:jug:2.0.0:lgpl"
+    compile "org.slf4j:slf4j-log4j12:1.5.8"
+    compile "net.sf.jtidy:jtidy:r938"
+    compile "javax.servlet:servlet-api:2.4"
+    compile "javax.servlet:jstl:1.1.2"
+    compile "taglibs:standard:1.1.2"
+    compile "org.json:json:20080701"
+    compile "org.mortbay.jetty:jetty:6.1.22"
+    compile "net.sourceforge.htmlunit:htmlunit:2.9"
+    compile "org.seleniumhq.webdriver:webdriver-htmlunit:0.9.7376"
+    compile "org.seleniumhq.webdriver:webdriver-firefox:0.9.7376"
+    compile "org.seleniumhq.webdriver:webdriver-ie:0.9.7376"
+    compile "com.thoughtworks.xstream:xstream:1.3.1"
+    compile "org.codehaus.jettison:jettison:1.2"
+    compile "javamaildir:javamaildir:0.6"
+    compile "hsqldb:hsqldb:1.8.0.10"
+    compile "commons-dbcp:commons-dbcp:1.3"
+    compile "com.flagstone:transform:3.0"
+    compile "org.seleniumhq.selenium:selenium:2.0b1"
+    compile "org.seleniumhq.selenium:selenium-server:2.0b1"
+    compile "com.atomikos:transactions-jta:3.2.3"
+    compile "com.github.mjeanroy:exiftool-lib:1.1"
+    compile "org.unitils:unitils:2.4"
+    compile "org.slf4j:slf4j-api:1.5.8"
+
+    // https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient
+    compile group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
+
+    // Use JUnit test framework
+    compile 'junit:junit:4.12'
+    testCompile "org.springframework:spring-test:2.5.5"
+}
