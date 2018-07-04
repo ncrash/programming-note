@@ -1,0 +1,82 @@
+allprojects {
+
+    // 인텔리J, 이클립스 적용
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+
+    configurations {
+        all {
+            // 제외 처리 필요한 라이브러리 파일 설정
+//            exclude group: 'commons-logging'
+            exclude module: 'slf4j-log4j12'
+            resolutionStrategy {
+                // 라이브러리 버전 충돌시 에러 처리
+                //failOnVersionConflict()
+                // 모듈 변경 라이브러리 버전(SNAPSHOT) 캐쉬 없음
+                cacheChangingModulesFor 0, 'seconds'
+                // 동적 버전 라이브러리 버전은 10분만 캐쉬
+                cacheDynamicVersionsFor 10 * 60, 'seconds'
+                forcedModules = [
+                        "org.jboss.logging:jboss-logging:3.1.3.GA"
+                ]
+            }
+        }
+
+        implementation {
+            exclude group: 'javax.jms', module: 'jms'
+            exclude group: 'com.sun.jdmk', module: 'jmxtools'
+            exclude group: 'com.sun.jmx', module: 'jmxri'
+        }
+    }
+}
+
+configure(allprojects.findAll { allprojects -> allprojects.name.contains('-') }) {
+
+    apply plugin: 'java'
+
+    // JDK 버전
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    // 컴파일 인코딩 옵션
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
+
+    // 컴파일 옵션
+    compileJava {
+        options.compilerArgs << '-Xdoclint:none'
+        options.fork = true
+        options.forkOptions.executable = 'javac'
+    }
+
+    // 의존성 라이브러리 저장소
+    repositories {
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+        maven {
+            url "http://repo.spring.io/plugins-release/"
+        }
+        maven {
+            url "https://maven.atlassian.com/3rdparty"
+        }
+        maven {
+            url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
+        }
+        maven {
+            url "http://central.maven.org/maven2/"
+        }
+        maven {
+            url "http://repository.mxhero.com/nexus/content/repositories/org.mxhero.releases/"
+        }
+    }
+
+    // 서브 프로젝트 src/main/java, src/main/resources, src/test/java, src/test/resources 폴더 만들기
+    task initSrc << {
+        project.sourceSets*.allSource.srcDirTrees.flatten().dir.each { dir ->
+            if (project.name.contains("-") && !project.name.equals(rootProject.name)) {
+                dir.mkdirs()
+            }
+        }
+    }
+}

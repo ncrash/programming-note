@@ -1,0 +1,3 @@
+rootProject.name = 'code-test-practive-by-tdd'
+
+include 'testing-modules/selenium-junit'
