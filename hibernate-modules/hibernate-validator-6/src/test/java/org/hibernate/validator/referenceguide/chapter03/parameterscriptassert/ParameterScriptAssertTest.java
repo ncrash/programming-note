@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.ParameterScriptAssert;
 
 import static org.junit.Assert.assertEquals;
 
-public class CarTest {
+public class ParameterScriptAssertTest {
 
 	private static ExecutableValidator executableValidator;
 
