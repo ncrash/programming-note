@@ -18,4 +18,7 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/org.springframework/spring-expression
 	compile group: 'org.springframework', name: 'spring-expression', version: '5.0.7.RELEASE'
+
+	// https://mvnrepository.com/artifact/javax.enterprise/cdi-api
+	compileOnly group: 'javax.enterprise', name: 'cdi-api', version: '2.0'
 }
