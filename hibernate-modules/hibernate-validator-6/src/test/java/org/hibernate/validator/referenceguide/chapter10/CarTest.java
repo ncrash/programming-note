@@ -155,7 +155,7 @@ public class CarTest {
 		//The "speed" parameter is located at index 0, has one constraint and is not cascaded
 		//nor does it define group conversions
 		//FIXME "arg0" -> "speedInMph"
-		assertEquals( "args0", speedDescriptor.getName() );
+		assertEquals( "arg0", speedDescriptor.getName() );
 		assertEquals( 0, speedDescriptor.getIndex() );
 		assertEquals( 1, speedDescriptor.getConstraintDescriptors().size() );
 		assertFalse( speedDescriptor.isCascaded() );
