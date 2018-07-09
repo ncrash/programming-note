@@ -5,6 +5,7 @@
 * [Iteration vs. Recursion in Java - DZone Java](https://dzone.com/articles/iteration-vs-recursion-in-java?edition=385212)
   * Fork from : https://github.com/smartinrub/java-iterative-benchmark
   * [벤치마킹 스크린 레코딩 - JMH - Iteration vs. Recursion in Java - asciinema](https://asciinema.org/a/190681)
+  * [![asciicast](https://asciinema.org/a/190681.png)](https://asciinema.org/a/190681)
   * CLI Commands
     > gradle shadowJar
     >
