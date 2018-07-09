@@ -6,7 +6,6 @@ package org.hibernate.validator.referenceguide.chapter03.parameterscriptassert;
 import java.util.List;
 
 import org.hibernate.validator.constraints.ParameterScriptAssert;
-import org.hibernate.validator.constraints.ScriptAssert;
 
 //tag::include[]
 public class Car {
