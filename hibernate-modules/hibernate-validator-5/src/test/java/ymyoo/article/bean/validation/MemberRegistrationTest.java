@@ -11,7 +11,6 @@ import javax.validation.ValidatorFactory;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-import static org.testng.Assert.*;
 
 public class MemberRegistrationTest {
 
