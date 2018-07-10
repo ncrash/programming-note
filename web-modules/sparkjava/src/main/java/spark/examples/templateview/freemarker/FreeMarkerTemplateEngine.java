@@ -1,4 +1,4 @@
-package spark.examples.templateview;
+package spark.examples.templateview.freemarker;
 
 import java.io.IOException;
 import java.io.StringWriter;
