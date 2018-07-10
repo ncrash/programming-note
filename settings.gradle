@@ -6,3 +6,4 @@ include 'hibernate-modules/hibernate-validator-5'
 include 'hibernate-modules/hibernate-validator-6'
 
 include 'benchmark-modules/dzone-interation-recursion'
+include 'web-modules/sparkjava'
