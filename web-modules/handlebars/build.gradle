@@ -21,5 +21,12 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.github.jknack/handlebars
 	compile group: 'com.github.jknack', name: 'handlebars', version: '1.3.0'
 
+	// https://mvnrepository.com/artifact/com.github.jknack/handlebars-helpers
+	compile group: 'com.github.jknack', name: 'handlebars-helpers', version: '1.3.0'
+
 	compile 'com.github.jknack:handlebars-proto:1.3.0'
+
+	// https://mvnrepository.com/artifact/joda-time/joda-time
+	compile group: 'joda-time', name: 'joda-time', version: '2.3'
+
 }
