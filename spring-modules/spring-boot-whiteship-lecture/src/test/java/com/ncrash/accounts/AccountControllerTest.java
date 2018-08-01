@@ -2,15 +2,14 @@ package com.ncrash.accounts;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ncrash.Application;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.web.FilterChainProxy;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
@@ -20,10 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.core.Is.is;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -31,10 +27,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Created by ncrash on 2015. 9. 6..
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes  = Application.class)
-@WebAppConfiguration
 @Transactional
+@WebAppConfiguration
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = {Application.class})
 public class AccountControllerTest {
 
     MockMvc mockMvc;
@@ -132,7 +128,8 @@ public class AccountControllerTest {
             "totalPages": 1
         }
          */
-        final ResultActions result = mockMvc.perform(get("/accounts"));
+        final ResultActions result = mockMvc.perform(get("/accounts")
+				.with(httpBasic(createDto.getUsername(), createDto.getPassword())));
 
         result.andDo(print());
         result.andExpect(status().isOk());
@@ -143,7 +140,8 @@ public class AccountControllerTest {
         final AccountDto.Create createDto = accountCreateDto();
         final Account account = accountService.createAccount(createDto);
 
-        ResultActions result = mockMvc.perform(get("/accounts/" + account.getId()));
+        final ResultActions result = mockMvc.perform(get("/accounts/" + account.getId())
+				.with(httpBasic(createDto.getUsername(), createDto.getPassword())));
 
         result.andDo(print());
         result.andExpect(status().isOk());
@@ -159,6 +157,7 @@ public class AccountControllerTest {
         updateDto.setPassword("pass");
 
         final ResultActions result = mockMvc.perform(put("/accounts/" + account.getId())
+				.with(httpBasic(createDto.getUsername(), createDto.getPassword()))
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(updateDto)));
 
