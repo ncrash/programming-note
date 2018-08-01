@@ -1,7 +1,0 @@
-spotless {
-    java {
-        googleJavaFormat()
-        // you can then layer other format steps, such as
-//        licenseHeaderFile 'spotless.license.java'
-    }
-}
