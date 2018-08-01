@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# spring-boot
-=======
 [![Build Status](https://travis-ci.org/ncrash/code-test-practice-by-tdd.svg?branch=master)](https://travis-ci.org/ncrash/code-test-practice-by-tdd)
 
 # Programming Study
@@ -12,4 +9,3 @@
 * https://github.com/eugenp/tutorials 전략과 동일한 방식으로 학습경험 쌓아간다.
 	* 차이점 하나. `maven` 대신 `gradle`로 빌드 시스템을 쓰는것
 	* 차이점 두울. 알고리즘과 디자인패턴에 대해서도 다룰것
->>>>>>> parent of be6d968... Delete all the things.
