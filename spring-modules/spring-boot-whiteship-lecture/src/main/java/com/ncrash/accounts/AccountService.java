@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.Optional;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -53,12 +54,12 @@ public class AccountService {
     }
 
     public Account getAccount(Long id) {
-        final Account account = accountRepository.findOne(id);
-        if (account == null) {
+        final Optional<Account> account = accountRepository.findById(id);
+        if (!account.isPresent()) {
             throw new AccountNotFoundException(id);
         }
 
-        return account;
+        return account.get();
     }
 
     public void deleteAccount(Long id) {
