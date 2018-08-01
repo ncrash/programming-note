@@ -1,0 +1,27 @@
+apply from: "${gradleScriptDir}/dependency.gradle"
+
+dependencies {
+	compile "org.mortbay.jetty:jetty:6.1.22"
+
+	compile "net.sourceforge.htmlunit:htmlunit:2.9"
+	compile "org.seleniumhq.webdriver:webdriver-htmlunit:0.9.7376"
+	compile "org.seleniumhq.webdriver:webdriver-firefox:0.9.7376"
+	compile "org.seleniumhq.webdriver:webdriver-ie:0.9.7376"
+	compile "com.thoughtworks.xstream:xstream:1.3.1"
+
+	compile "org.seleniumhq.selenium:selenium:2.0b1"
+	compile "org.seleniumhq.selenium:selenium-server:2.0b1"
+
+	compile "javax.servlet:servlet-api:2.4"
+	compile "javax.servlet:jstl:1.1.2"
+	compile "javax.validation:validation-api:1.0.0.GA"
+	compile "struts:struts:1.2.7"
+
+	compile "org.springframework:spring-core:2.5.5"
+	compile "org.springframework:spring-jdbc:2.5.5"
+	compile "org.springframework:spring-web:2.5.5"
+	compile "org.springframework:spring-webmvc:2.5.5"
+
+	compile "net.sf.jtidy:jtidy:r938"
+	compile "taglibs:standard:1.1.2"
+}

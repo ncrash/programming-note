@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:/sample.properties</value>
+		</property>
+	</bean>
+	
+	<!-- Controller Mapping Start -->
+	<bean id="sampleController" class="com.ncrash.code.web.controller.SampleSpringMvc1Controller">
+	</bean>
+	<!-- Controller Mapping End -->
+	
+	<!-- URL Mapping Start -->
+	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="order" value="1" />
+		<property name="alwaysUseFullPath" value="true" />
+		<property name="mappings">
+			<props>
+				<!-- Sample -->
+				<prop key="/sample/view.do">sampleController</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- URL Mapping End -->
+	
+	<!-- View Resolver Start -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.JstlView</value>
+		</property>
+		<property name="cache" value="false" />
+		<property name="prefix" value="/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- View Resolver End -->
+</beans>

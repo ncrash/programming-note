@@ -1,0 +1,35 @@
+{
+  "content" : "cover",
+  "userId" : "daekwon",
+  "wmode" : "window",
+  "countondownload" : "",
+  "encoding_notify" : "daekwon.kang@247realmedia.com",
+  "encoding_profiles" : [ {
+    "profileName" : "iPad(256)",
+    "videoFormat" : "IPHONE",
+    "videoCodec" : "LIBX264",
+    "videoBitrates" : [ "B_256", "B_512", "B_1024" ],
+    "videoSizes" : [ {
+      "width" : 320,
+      "height" : 240
+    }, {
+      "width" : 1024,
+      "height" : 768
+    } ]
+  }, {
+    "profileName" : "iPad(512)",
+    "videoFormat" : "IPHONE",
+    "videoCodec" : "LIBX264",
+    "videoBitrates" : [ "B_512", "B_1024" ],
+    "videoSizes" : [ {
+      "width" : 320,
+      "height" : 240
+    }, {
+      "width" : 368,
+      "height" : 192
+    }, {
+      "width" : 1024,
+      "height" : 768
+    } ]
+  } ]
+}

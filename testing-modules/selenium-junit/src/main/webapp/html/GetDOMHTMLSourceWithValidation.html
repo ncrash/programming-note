@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> DOM HTML Source check test </TITLE>
+</HEAD>
+<BODY>
+
+<!-- Dynamic content from OAS : START -->
+<CENTER>
+<SCRIPT type="text/javascript" src="http://oascentral.walmartwom.com/RealMedia/ads/adstream_jx.ads/wmttest/apparel/clothing/12345@Top"></SCRIPT>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
+</CENTER>
+<!-- Dynamic content from OAS : END -->
+
+<!-- For Debug purpose : Start --> 
+<SCRIPT type="text/javascript"> 
+<!--
+function sourceWin(){ 
+	newWindow = window.open('','_blank'); 
+
+	var htmlSource = document.documentElement.innerHTML;
+	var htmlSourceForDisplay = htmlSource.replace(/</g, "&lt;").replace(/>/g,"&gt;").replace(/\n/g, "<BR/>"); 
+	newWindow.document.write(htmlSourceForDisplay); 
+	newWindow.document.close();
+	} 
+
+
+	function validateWin(){ 
+		var htmlSource = getPageSource();
+		var htmlSourceForDisplay = htmlSource.replace(/</g, "&lt;").replace(/>/g,"&gt;").replace(/\n/g, "<BR/>"); 
+		//var htmlSourceForDisplay = htmlSource.replace(/\n/g, "<BR/>"); 
+		var workform = document.forms['formPost'];
+		workform.html_source.value = htmlSourceForDisplay;
+		workform.submit();
+		//alert(htmlValidateUrl);
+	
+		//newWindow.document.write(htmlSourceForDisplay); 
+		//newWindow.document.close();
+	} 
+	
+	function htmlValidation() {
+		alert(getPageSource());
+		alert('valid');
+	}
+	
+	function getPageSource() {
+		var htmlSource = document.documentElement.innerHTML;
+		return htmlSource;
+	}
+//-->
+</SCRIPT>
+ 
+<CENTER>
+  <CENTER>
+    <A onclick=javascript:sourceWin(); href="#">Show HTML source in DOM level</A>
+    <br/>
+    <A onclick=javascript:validateWin(); href="#">validate this page</A>
+     
+  </CENTER> 
+
+<form name="formPost" action="http://localhost:8080/java-code-practice-with-tdd/html/validator.do" target="_blank" method="post">
+	<input type="hidden" name="html_source" value="" />
+</form>
+
+</BODY>
+</HTML>

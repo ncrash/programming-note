@@ -1,0 +1,14 @@
+{
+  "animals" : [ {
+    "name" : "Spike",
+    "breed" : "mutt",
+    "leash_color" : "red"
+  }, {
+    "name" : "Fluffy",
+    "favorite_toy" : "spider ring"
+  }, {
+    "name" : "Baldy",
+    "wing_span" : "6 feet",
+    "preferred_food" : "wild salmon"
+  } ]
+}
