@@ -1,0 +1,13 @@
+{
+  "profileName" : "iPad(256)",
+  "videoFormat" : "IPHONE",
+  "videoCodec" : "LIBX264",
+  "videoBitrates" : [ "B_256", "B_512", "B_1024" ],
+  "videoSizes" : [ {
+    "width" : 320,
+    "height" : 240
+  }, {
+    "width" : 1024,
+    "height" : 768
+  } ]
+}

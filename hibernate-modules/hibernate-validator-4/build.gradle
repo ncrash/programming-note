@@ -1,0 +1,6 @@
+apply from: "${gradleScriptDir}/dependency.gradle"
+
+dependencies {
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
+	compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.3.2.Final'
+}
