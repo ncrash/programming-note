@@ -36,11 +36,11 @@ public class PubSub {
 	public static void main(String[] args) {
 		Publisher<Integer> pub = iterPub(Stream.iterate(1, a -> a + 1).limit(10).collect(Collectors.toList()));
 //		Publisher<Integer> mapPub = mapPub(pub, s -> s * 10);
-		Publisher<String> mapPub = mapPub(pub, s -> "[" + s + "]");
+//		Publisher<String> mapPub = mapPub(pub, s -> "[" + s + "]");
 //		Publisher<List> mapPub = mapPub(pub, Collections::singletonList);
 //		Publisher<Integer> sumPub = sumPub(pub);
-//		Publisher<Integer> reducePub = reducePub(pub, 0, (a, b)->a+b);
-		mapPub.subscribe(logSub());
+		Publisher<String> reducePub = reducePub(pub, "", (a, b) -> a + "-" + b);
+		reducePub.subscribe(logSub());
 	}
 
 	// 1,2,3,4,5,
@@ -50,28 +50,28 @@ public class PubSub {
 	// 6 -> (6,4) -> 6 + 4 = 10
 	// 10 -> (10,5) -> 10 + 5 = 15
 
-//	private static Publisher<Integer> reducePub(Publisher<Integer> pub, int init, BiFunction<Integer, Integer, Integer> bf) {
-//		return new Publisher<Integer>() {
-//			@Override
-//			public void subscribe(Subscriber<? super Integer> sub) {
-//
-//				pub.subscribe(new DelegateSub(sub) {
-//					int result = init;
-//
-//					@Override
-//					public void onNext(Integer i) {
-//						result = bf.apply(result, i);
-//					}
-//
-//					@Override
-//					public void onComplete() {
-//						sub.onNext(result);
-//						sub.onComplete();
-//					}
-//				});
-//			}
-//		};
-//	}
+	private static Publisher<String> reducePub(Publisher<Integer> pub, String init, BiFunction<String, Integer, String> bf) {
+		return new Publisher<String>() {
+			@Override
+			public void subscribe(Subscriber<? super String> sub) {
+
+				pub.subscribe(new DelegateSub<Integer, String>(sub) {
+					String result = init;
+
+					@Override
+					public void onNext(Integer i) {
+						result = bf.apply(result, i);
+					}
+
+					@Override
+					public void onComplete() {
+						sub.onNext(result);
+						sub.onComplete();
+					}
+				});
+			}
+		};
+	}
 
 //	private static Publisher<Integer> sumPub(Publisher<Integer> pub) {
 //		return new Publisher<Integer>() {
