@@ -1,10 +1,18 @@
 buildscript {
+	ext {
+		springBootVersion = '2.0.4.RELEASE'
+	}
 	repositories {
 		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
 
 apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 ext {
 	slf4jVersion = '1.7.5'
@@ -37,9 +45,6 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.0'
 
-	compile "org.reactivestreams:reactive-streams:1.0.2"
-	testCompile "org.reactivestreams:reactive-streams-tck:1.0.2"
-
-	// https://mvnrepository.com/artifact/io.projectreactor/reactor-core
-	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.1.8.RELEASE'
+	compile('org.springframework.boot:spring-boot-starter-webflux')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
