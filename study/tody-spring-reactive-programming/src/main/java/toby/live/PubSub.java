@@ -6,19 +6,41 @@ import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
  * TOBY TV 6회 - 스프링 리액티브 웹 개발 (2) - Operators
  *
- * Reactive Streams -
+ * Reactive Streams - Operators
+ *
+ * Publisher -> [Data1] -> Op1 -> [Data2] -> Op2 -> [Data3] -> Subscriber
+ *
+ * 1. map (d1 -> f -> d2)
+ *
+ * pub -> [Data1] -> mapPub -> [Data2] -> logSub
+ *                <- subscribe(logSub)
+ *                -> onSubscribe(s)
+ *                -> onNext
+ *                -> onNext
+ *                -> onComplete
  */
 @Slf4j
 public class PubSub {
 	public static void main(String[] args) {
 		Publisher<Integer> pub = iterPub(Stream.iterate(1, a -> a + 1).limit(10).collect(Collectors.toList()));
-		pub.subscribe(logSub());
+		Publisher<Integer> mapPub = mapPub(pub, (Function<Integer, Integer>) s -> s * 10);
+		mapPub.subscribe(logSub());
+	}
+
+	private static Publisher<Integer> mapPub(Publisher<Integer> pub, Function<Integer, Integer> f) {
+		return new Publisher<Integer>() {
+			@Override
+			public void subscribe(Subscriber<? super Integer> sub) {
+				pub.subscribe(sub);
+			}
+		};
 	}
 
 	private static Subscriber<Integer> logSub() {
