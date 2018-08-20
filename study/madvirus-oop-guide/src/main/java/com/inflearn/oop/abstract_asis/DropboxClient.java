@@ -11,4 +11,8 @@ public class DropboxClient {
 	public void copy(String fileId, FileOutputStream out) {
 
 	}
+
+	public void copyFromUrl(String s) {
+
+	}
 }
