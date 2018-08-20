@@ -1,5 +1,7 @@
 package com.inflearn.oop.abstract_asis;
 
+import com.inflearn.oop.common.CloudId;
+
 public class FileInfo {
 	private CloudId cloudId;
 	private String fileId;
