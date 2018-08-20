@@ -45,6 +45,24 @@ public class CloudFileManager {
 		}
 	}
 
+	public FileInfo copy(FileInfo fileInfo, CloudId to) {
+		CloudId from = fileInfo.getCloudId();
+		if (to == CloudId.DROPBOX) {
+			DropboxClient dropboxClient = new DropboxClient();
+			if (from == CloudId.BOX) {
+				dropboxClient.copyFromUrl("http://www.box.com/files/"+fileInfo.getFileId());
+			} else if (from == CloudId.SCLOUD) {
+				dropboxClient.copyFromUrl("http://www.scloud.com/files/"+fileInfo.getFileId());
+			} else if (from == CloudId.DCLOUD) {
+				dropboxClient.copyFromUrl("http://www.dcloud.com/files/"+fileInfo.getFileId());
+			} else if (from == CloudId.NCLOUD) {
+				dropboxClient.copyFromUrl("http://www.ncloud.com/files/"+fileInfo.getFileId());
+			}
+		}
+
+		return null;
+	}
+
 	private static class CopyUtil {
 		public static void copy(InputStream is, FileOutputStream out) {
 
