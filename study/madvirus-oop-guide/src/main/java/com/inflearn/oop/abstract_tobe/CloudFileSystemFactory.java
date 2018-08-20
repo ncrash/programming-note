@@ -7,6 +7,8 @@ public abstract class CloudFileSystemFactory {
 		switch (cloudId) {
 			case DROPBOX:
 				return new DropBoxFileSystem();
+			case BOX:
+				return new BoxFileSystem();
 			default:
 				break;
 		}
