@@ -1,4 +1,4 @@
-package com.inflearn.oop.abstract_asis;
+package com.inflearn.oop.common;
 
 public enum CloudId {
 	DROPBOX,
