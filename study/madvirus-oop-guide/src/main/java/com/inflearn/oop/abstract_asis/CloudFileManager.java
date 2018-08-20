@@ -20,6 +20,12 @@ public class CloudFileManager {
 			return result;
 		} else if (cloudId == CloudId.BOX) {
 			BoxService boxSvc = new BoxService();
+		} else if (cloudId == CloudId.SCLOUD) {
+
+		} else if (cloudId == CloudId.NCLOUD) {
+
+		} else if (cloudId == CloudId.DCLOUD) {
+
 		}
 
 		return null;
