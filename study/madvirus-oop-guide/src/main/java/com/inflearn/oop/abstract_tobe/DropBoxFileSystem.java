@@ -1,7 +1,6 @@
 package com.inflearn.oop.abstract_tobe;
 
-import com.inflearn.oop.common.CloudId;
-import com.inflearn.oop.common.DbFile;
+import com.inflearn.oop.abstract_common.DbFile;
 
 import java.io.File;
 import java.util.ArrayList;

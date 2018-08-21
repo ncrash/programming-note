@@ -1,6 +1,6 @@
 package com.inflearn.oop.abstract_asis;
 
-import com.inflearn.oop.common.CloudId;
+import com.inflearn.oop.abstract_common.CloudId;
 
 public class FileInfo {
 	private CloudId cloudId;

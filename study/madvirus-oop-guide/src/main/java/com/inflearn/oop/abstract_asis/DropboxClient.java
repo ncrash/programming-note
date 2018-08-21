@@ -1,6 +1,6 @@
 package com.inflearn.oop.abstract_asis;
 
-import com.inflearn.oop.common.DbFile;
+import com.inflearn.oop.abstract_common.DbFile;
 
 import java.io.FileOutputStream;
 import java.util.List;
