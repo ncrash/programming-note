@@ -1,6 +1,6 @@
 package com.inflearn.oop.abstract_tobe;
 
-import com.inflearn.oop.common.CloudId;
+import com.inflearn.oop.abstract_common.CloudId;
 
 public abstract class CloudFileSystemFactory {
 	public static CloudFileSystem getFileSystem(CloudId cloudId) {

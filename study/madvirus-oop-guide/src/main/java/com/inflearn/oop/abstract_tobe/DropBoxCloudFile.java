@@ -1,6 +1,6 @@
 package com.inflearn.oop.abstract_tobe;
 
-import com.inflearn.oop.common.DbFile;
+import com.inflearn.oop.abstract_common.DbFile;
 
 import java.io.InputStream;
 import java.io.OutputStream;

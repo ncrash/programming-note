@@ -1,4 +1,4 @@
-package com.inflearn.oop.common;
+package com.inflearn.oop.abstract_common;
 
 public class DbFile {
 	public String getId() {
