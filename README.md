@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ncrash/code-test-practice-by-tdd.svg?branch=master)](https://travis-ci.org/ncrash/code-test-practice-by-tdd)
 
-# Programming Study
+# Programming Note
 
 * 백문이 불여일타. 기록이 기억을 지배한다.
 * 학습을 통해 얻게된 코드베이스 경험을 잃어버리고 싶지 않아서 시작함
