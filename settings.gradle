@@ -1,15 +1,34 @@
-rootProject.name = 'code-test-practive-by-tdd'
+rootProject.name = 'programming-note'
 
-include 'testing-modules/selenium-junit'
-include 'hibernate-modules/hibernate-validator-4'
-include 'hibernate-modules/hibernate-validator-5'
-include 'hibernate-modules/hibernate-validator-6'
+// include one project whose project dir does not match the logical project path
+include 'selenium-junit'
+include 'hibernate-validator-4'
+include 'hibernate-validator-5'
+include 'hibernate-validator-6'
+include 'spring-retry'
+include 'spring-boot-whiteship-lecture'
+include 'tody-spring-reactive-programming'
+include 'madvirus-oop-guide'
+include 'dzone-article'
+include 'dzone-interation-recursion'
 
-include 'benchmark-modules/dzone-interation-recursion'
+project(':selenium-junit').projectDir = file('testing-modules/selenium-junit')
+project(':hibernate-validator-4').projectDir = file('hibernate-modules/hibernate-validator-4')
+project(':hibernate-validator-5').projectDir = file('hibernate-modules/hibernate-validator-5')
+project(':hibernate-validator-6').projectDir = file('hibernate-modules/hibernate-validator-6')
+project(':spring-retry').projectDir = file('spring-modules/spring-retry')
+project(':spring-boot-whiteship-lecture').projectDir = file('spring-modules/spring-boot-whiteship-lecture')
+project(':tody-spring-reactive-programming').projectDir = file('study/tody-spring-reactive-programming')
+project(':madvirus-oop-guide').projectDir = file('study/madvirus-oop-guide')
+project(':dzone-article').projectDir = file('study/dzone-article')
+project(':dzone-interation-recursion').projectDir = file('benchmark-modules/dzone-interation-recursion')
+
+
+//FIXME 다른 모듈과 동일한 방식으로 선언하는 경우 아래 오류발생.
+//Could not find method compile() for arguments [{group=org.slf4j, name=slf4j-api, version=1.7.25}] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
 include 'web-modules/sparkjava'
 include 'web-modules/handlebars'
-include 'spring-modules/spring-retry'
-include 'spring-modules/spring-boot-whiteship-lecture'
-include 'study/tody-spring-reactive-programming'
-include 'study/madvirus-oop-guide'
-include 'study/dzone-article'
+//include 'sparkjava'
+//include 'handlebars'
+//project(':sparkjava').projectDir = file('web-modules/sparkjava')
+//project(':handlebars').projectDir = file('web-modules/handlebars')

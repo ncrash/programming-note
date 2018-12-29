@@ -6,9 +6,11 @@
   * Fork from : https://github.com/smartinrub/java-iterative-benchmark
   * [![asciicast](https://asciinema.org/a/190681.png)](https://asciinema.org/a/190681)
   * CLI Commands
-    > gradle shadowJar
+    > cd %PROJECT_ROOT%
     >
-    > java -jar ./build/libs/benchmark-modules/dzone-interation-recursion-all.jar org.smartinrub.javaiterativebenchmark.BenchMark
+    > ./gradlew :dzone-interation-recursion:shadowJar
+    >
+    > java -jar benchmark-modules/dzone-interation-recursion/build/libs/dzone-interation-recursion-all.jar org.smartinrub.javaiterativebenchmark.BenchMark
   
 ## Related Link 
 * [org.openjdk.jmh 관련해서 상당히 많은 모듈](https://mvnrepository.com/artifact/org.openjdk.jmh)들이 존재한다.
