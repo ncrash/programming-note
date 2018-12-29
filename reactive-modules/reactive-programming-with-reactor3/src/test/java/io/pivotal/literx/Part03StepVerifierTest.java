@@ -61,7 +61,7 @@ public class Part03StepVerifierTest {
 
 	@Test
 	public void expectSkylerJesseComplete() {
-		final Flux<User> flux = Flux.just(new User("swhite"), new User("jpinkman"));
+		final Flux<User> flux = Flux.just(new User("swhite", null, null), new User("jpinkman", null, null));
 
 		// Use StepVerifier to check that the flux parameter emits a User with "swhite"username
 		// and another one with "jpinkman" then completes successfully.
