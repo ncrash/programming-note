@@ -5,5 +5,5 @@ dependencies {
 	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.2.3.RELEASE'
 
 	// https://mvnrepository.com/artifact/io.projectreactor/reactor-test
-	testCompile group: 'io.projectreactor', name: 'reactor-test', version: '3.2.3.RELEASE'
+	compile group: 'io.projectreactor', name: 'reactor-test', version: '3.2.3.RELEASE'
 }
