@@ -5,9 +5,5 @@ dependencies {
 	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.2.3.RELEASE'
 
 	// https://mvnrepository.com/artifact/io.projectreactor/reactor-test
-	compile group: 'io.projectreactor', name: 'reactor-test', version: '3.2.3.RELEASE'
-
-	// https://mvnrepository.com/artifact/org.assertj/assertj-core
-	compile group: 'org.assertj', name: 'assertj-core', version: '3.11.0'
-
+	testCompile group: 'io.projectreactor', name: 'reactor-test', version: '3.2.3.RELEASE'
 }
