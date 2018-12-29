@@ -18,23 +18,40 @@ public class Part05Merge {
 
 //========================================================================================
 
-	// TODO Merge flux1 and flux2 values with interleave
+	/**
+	 * Merge flux1 and flux2 values with interleave
+	 *
+	 * @param flux1
+	 * @param flux2
+	 * @see <a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#mergeWith-org.reactivestreams.Publisher-">Flux Javadoc</a>
+	 */
 	Flux<User> mergeFluxWithInterleave(Flux<User> flux1, Flux<User> flux2) {
-		return null;
+		return flux1.mergeWith(flux2);
 	}
 
 //========================================================================================
 
-	// TODO Merge flux1 and flux2 values with no interleave (flux1 values and then flux2 values)
+	/**
+	 * Merge flux1 and flux2 values with no interleave (flux1 values and then flux2 values)
+	 *
+	 * @param flux1
+	 * @param flux2
+	 * @see <a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#concatWith-org.reactivestreams.Publisher-">Flux Javadoc</a>
+	 */
 	Flux<User> mergeFluxWithNoInterleave(Flux<User> flux1, Flux<User> flux2) {
-		return null;
+		return flux1.concatWith(flux2);
 	}
 
 //========================================================================================
 
-	// TODO Create a Flux containing the value of mono1 then the value of mono2
+	/**
+	 * Create a Flux containing the value of mono1 then the value of mono2
+	 *
+	 * @param mono1
+	 * @param mono2
+	 * @see <a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#concat-org.reactivestreams.Publisher-">Flux Javadoc</a>
+	 */
 	Flux<User> createFluxFromMultipleMono(Mono<User> mono1, Mono<User> mono2) {
-		return null;
+		return Flux.concat(mono1, mono2);
 	}
-
 }
