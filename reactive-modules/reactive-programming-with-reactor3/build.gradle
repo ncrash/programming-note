@@ -1,0 +1,6 @@
+apply from: "${gradleScriptDir}/dependency.gradle"
+
+dependencies {
+	// https://mvnrepository.com/artifact/io.projectreactor/reactor-core
+	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.2.3.RELEASE'
+}
