@@ -11,10 +11,10 @@ public class Either<L, R> {
         this.right = right;
     }
     public static <L,R> Either<L,R> Left( L value) {
-        return new Either(value, null);
+        return new Either<>(value, null);
     }
     public static <L,R> Either<L,R> Right( R value) {
-        return new Either(null, value);
+        return new Either<>(null, value);
     }
     public Optional<L> getLeft() {
         return Optional.ofNullable(left);
@@ -56,7 +56,7 @@ public class Either<L, R> {
             try {
                 return Either.Right(function.apply(t));
             } catch (Exception ex) {
-                return Either.Left(Pair.of(ex,t));
+                return Either.Left(new Try<Exception, Object>(ex, t));
             }
         };
     }
