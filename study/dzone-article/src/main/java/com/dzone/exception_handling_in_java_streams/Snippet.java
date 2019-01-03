@@ -14,7 +14,7 @@ public class Snippet {
 		myList.add("C");
 
 		myList.stream()
-			.map(wrap(Snippet::doSomething))
+			.map(Either.lift(Snippet::doSomething))
 			.forEach(System.out::println);
 	}
 
