@@ -13,14 +13,16 @@ public class Snippet {
 		myList.add("C");
 
 		myList.stream()
-			.map(item -> {
-				try {
-					return doSomething(item);
-				} catch (MyException e) {
-					throw new RuntimeException(e);
-				}
-			})
+			.map(Snippet::trySomething)
 			.forEach(System.out::println);
+	}
+
+	private static String trySomething(String item) {
+		try {
+			return doSomething(item);
+		} catch (MyException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	private static String doSomething(String item) {
