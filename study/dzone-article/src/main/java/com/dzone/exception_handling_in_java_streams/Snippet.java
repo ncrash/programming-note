@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 
 public class Snippet {
 	public static void main(String[] args) {
@@ -13,16 +14,8 @@ public class Snippet {
 		myList.add("C");
 
 		myList.stream()
-			.map(Snippet::trySomething)
+			.map(wrap(Snippet::doSomething))
 			.forEach(System.out::println);
-	}
-
-	private static String trySomething(String item) {
-		try {
-			return doSomething(item);
-		} catch (MyException e) {
-			throw new RuntimeException(e);
-		}
 	}
 
 	private static String doSomething(String item) {
@@ -34,5 +27,15 @@ public class Snippet {
 	}
 
 	private static class MyException extends RuntimeException {
+	}
+
+	public static <T,R> Function<T,R> wrap(CheckedFunction<T,R> checkedFunction) {
+		return t -> {
+			try {
+				return checkedFunction.apply(t);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		};
 	}
 }
