@@ -9,3 +9,15 @@
 * https://github.com/eugenp/tutorials 전략과 동일한 방식으로 학습경험 쌓아간다.
 	* 차이점 하나. `maven` 대신 `gradle`로 빌드 시스템을 쓰는것
 	* 차이점 두울. 알고리즘과 디자인패턴에 대해서도 다룰것
+
+## Gradle
+
+* 새로운 서브모듈 생성 시 `Build Init Plugin` 명령으로 프로젝트 초기화
+* https://docs.gradle.org/current/userguide/build_init_plugin.html
+
+```$ gradle init --type java-library```
+
+```$ gradle init --type scala-library```
+
+```$ gradle init --type groovy-library```
+  
