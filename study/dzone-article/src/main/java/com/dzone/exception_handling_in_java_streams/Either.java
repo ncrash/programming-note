@@ -51,6 +51,16 @@ public class Either<L, R> {
         };
     }
 
+    public static <T,R> Function<T, Either> liftWithValue(CheckedFunction<T,R> function) {
+        return t -> {
+            try {
+                return Either.Right(function.apply(t));
+            } catch (Exception ex) {
+                return Either.Left(Pair.of(ex,t));
+            }
+        };
+    }
+
     public String toString() {
         if (isLeft()) {
             return "Left(" + left +")";
