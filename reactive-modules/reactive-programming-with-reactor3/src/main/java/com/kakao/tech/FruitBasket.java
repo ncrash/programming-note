@@ -2,6 +2,7 @@ package com.kakao.tech;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -18,7 +19,7 @@ public class FruitBasket {
 		final Flux<List<String>> basketFlux = Flux.fromIterable(baskets);
 
 		basketFlux.concatMap(basket -> {
-			final Mono<List<String>> distinctFruits = Flux.fromIterable(basket).distinct().collectList();
+			final Mono<List<String>> distinctFruits = Flux.fromIterable(basket).distinct().collectList().subscribeOn(Schedulers.parallel());
 			final Mono<Map<String, Long>> countFruitMono = Flux.fromIterable(basket)
 				.groupBy(fruit -> fruit)
 				.concatMap(groupedFlux -> groupedFlux.count()
@@ -31,7 +32,8 @@ public class FruitBasket {
 				.reduce((accumulatedMap, currentMap) -> new LinkedHashMap<String, Long>() {{
 					putAll(accumulatedMap);
 					putAll(currentMap);
-				}});
+				}})
+				.subscribeOn(Schedulers.parallel());
 
 			return Flux.zip(distinctFruits, countFruitMono, (distinct, count) -> new FruitInfo(distinct, count));
 		}).subscribe(System.out::println);
