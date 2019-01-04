@@ -1,4 +1,4 @@
-apply from: "${gradleScriptDir}/dependency.gradle"
+//apply from: "${gradleScriptDir}/dependency.gradle"
 
 dependencies {
 	// https://mvnrepository.com/artifact/io.projectreactor/reactor-core
