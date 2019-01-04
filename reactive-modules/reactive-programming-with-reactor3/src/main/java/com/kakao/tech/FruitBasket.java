@@ -33,7 +33,7 @@ public class FruitBasket {
 					putAll(currentMap);
 				}});
 
-			return countFruitMono;
-		}).subscribe();
+			return Flux.zip(distinctFruits, countFruitMono, (distinct, count) -> new FruitInfo(distinct, count));
+		}).subscribe(System.out::println);
 	}
 }
