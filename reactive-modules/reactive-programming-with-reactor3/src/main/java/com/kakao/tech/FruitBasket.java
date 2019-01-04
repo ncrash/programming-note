@@ -8,10 +8,14 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class FruitBasket {
 	public static void main(String[] args) throws InterruptedException {
+
+		CountDownLatch countDownLatch = new CountDownLatch(1);
+
 		final List<String> basket1 = Arrays.asList(new String[] { "kiwi", "orange", "lemon", "orange", "lemon", "kiwi" });
 		final List<String> basket2 = Arrays.asList(new String[] { "banana", "lemon", "lemon", "kiwi" });
 		final List<String> basket3 = Arrays.asList(new String[] { "strawberry", "orange", "lemon", "grape", "strawberry" });
@@ -36,6 +40,17 @@ public class FruitBasket {
 				.subscribeOn(Schedulers.parallel());
 
 			return Flux.zip(distinctFruits, countFruitMono, (distinct, count) -> new FruitInfo(distinct, count));
-		}).subscribe(System.out::println);
+		}).subscribe(
+			System.out::println, 	// 값이 넘어올 때 호출 됨, onNext(T)
+			error -> {
+				System.err.println(error);
+				countDownLatch.countDown();
+			}, // 에러 발생 시 출력하고 countDown, onError(Throwable)
+			() -> {
+				System.out.println("complete");
+				countDownLatch.countDown();
+			} // 정상적 종료 시 countDown, onComplete()
+		);
+		countDownLatch.await(2, TimeUnit.SECONDS);
 	}
 }
