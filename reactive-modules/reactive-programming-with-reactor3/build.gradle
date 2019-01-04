@@ -1,9 +1,10 @@
-//apply from: "${gradleScriptDir}/dependency.gradle"
-
 dependencies {
 	// https://mvnrepository.com/artifact/io.projectreactor/reactor-core
 	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.2.3.RELEASE'
 
 	// https://mvnrepository.com/artifact/io.projectreactor/reactor-test
 	compile group: 'io.projectreactor', name: 'reactor-test', version: '3.2.3.RELEASE'
+	
+	testCompile 'junit:junit:4.12'
+	testCompile 'org.assertj:assertj-core:3.11.1'
 }
