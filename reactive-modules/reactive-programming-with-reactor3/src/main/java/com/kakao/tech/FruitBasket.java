@@ -25,7 +25,7 @@ public class FruitBasket {
 
 		basketFlux.concatMap(basket -> {
 			final Flux<String> source = Flux.fromIterable(basket).log().publish().autoConnect(2);
-			final Mono<List<String>> distinctFruits = source.distinct().collectList();
+			final Mono<List<String>> distinctFruits = Flux.fromIterable(basket).distinct().collectList();
 			final Mono<Map<String, Long>> countFruitsMono = source
 				.groupBy(fruit -> fruit) // 바구니로 부터 넘어온 과일 기준으로 group을 묶는다.
 				.concatMap(groupedFlux -> groupedFlux.count()
