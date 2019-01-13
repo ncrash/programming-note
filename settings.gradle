@@ -12,6 +12,7 @@ include 'madvirus-oop-guide'
 include 'dzone-article'
 include 'dzone-interation-recursion'
 include 'reactive-programming-with-reactor3'
+include 'spring-coroutines-demo'
 
 project(':selenium-junit').projectDir = file('testing-modules/selenium-junit')
 project(':hibernate-validator-4').projectDir = file('hibernate-modules/hibernate-validator-4')
@@ -24,6 +25,7 @@ project(':madvirus-oop-guide').projectDir = file('study/madvirus-oop-guide')
 project(':dzone-article').projectDir = file('study/dzone-article')
 project(':dzone-interation-recursion').projectDir = file('benchmark-modules/dzone-interation-recursion')
 project(':reactive-programming-with-reactor3').projectDir = file('reactive-modules/reactive-programming-with-reactor3')
+project(':spring-coroutines-demo').projectDir = file('reactive-modules/spring-coroutines-demo')
 
 
 //FIXME 다른 모듈과 동일한 방식으로 선언하는 경우 아래 오류발생.
