@@ -13,3 +13,7 @@
 - [Reactor 3 Reference Guide](https://projectreactor.io/docs/core/release/reference/)
 
 - [reactor.core.publisher.Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html)
+
+## [kakao tech](http://tech.kakao.com/)
+
+- [사용하면서 알게 된 Reactor, 예제 코드로 살펴보기](http://tech.kakao.com/2018/05/29/reactor-programming/)
