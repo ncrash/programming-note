@@ -16,7 +16,7 @@ dependencies {
     compile "org.safehaus.jug:jug:2.0.0:lgpl"
     compile "org.json:json:20080701"
     compile "org.codehaus.jettison:jettison:1.2"
-	implementation name: 'javamaildir-0.6'
+	implementation files('libs/javamaildir-0.6.jar')
     compile "com.flagstone:transform:3.0"
     compile "com.github.mjeanroy:exiftool-lib:1.1"
 

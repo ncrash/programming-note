@@ -21,9 +21,6 @@ buildscript {
 
     // In this section you declare where to find the dependencies of your project
     repositories {
-        flatDir {
-            dirs 'libs'
-        }
         mavenCentral()
         maven {
             url "http://repo.spring.io/plugins-release/"
