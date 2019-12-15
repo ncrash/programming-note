@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ncrash/code-test-practice-by-tdd.svg?branch=master)](https://travis-ci.org/ncrash/code-test-practice-by-tdd)
+[![Build Status](https://travis-ci.org/ncrash/programming-note.svg?branch=master)](https://travis-ci.org/ncrash/programming-note)
 
 # Programming Note
 

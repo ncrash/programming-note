@@ -1,6 +1,7 @@
 package org.hibernate.validator.referenceguide.chapter07;
 
 import java.util.OptionalInt;
+import java.util.List;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -9,10 +10,6 @@ import javax.validation.constraints.Size;
 import javax.validation.valueextraction.Unwrapping;
 
 import com.google.common.collect.Multimap;
-
-import javafx.beans.property.LongProperty;
-import javafx.beans.property.ReadOnlyListProperty;
-import javafx.beans.property.StringProperty;
 
 @SuppressWarnings({ "restriction", "unused" })
 public class Container {
@@ -43,16 +40,16 @@ public class Container {
 
 	//tag::stringProperty[]
 	@NotBlank
-	private StringProperty stringProperty;
+	private String stringProperty;
 	//end::stringProperty[]
 
 	//tag::longProperty[]
 	@Min(5)
-	private LongProperty longProperty;
+	private Long longProperty;
 	//end::longProperty[]
 
 	//tag::listProperty[]
 	@Size(min = 1)
-	private ReadOnlyListProperty<@NotBlank String> listProperty;
+	private List<@NotBlank String> listProperty;
 	//end::listProperty[]
 }
