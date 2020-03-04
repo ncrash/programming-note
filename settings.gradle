@@ -11,6 +11,7 @@ include 'spring-boot-swagger'
 include 'spring-boot-whiteship-lecture'
 include 'tody-spring-reactive-programming'
 include 'madvirus-oop-guide'
+include 'madvirus-tdd-book'
 include 'dzone-article'
 include 'dzone-interation-recursion'
 include 'reactive-programming-with-reactor3'
@@ -26,6 +27,7 @@ project(':spring-boot-swagger').projectDir = file('spring-modules/spring-boot-sw
 project(':spring-boot-whiteship-lecture').projectDir = file('spring-modules/spring-boot-whiteship-lecture')
 project(':tody-spring-reactive-programming').projectDir = file('study/tody-spring-reactive-programming')
 project(':madvirus-oop-guide').projectDir = file('study/madvirus-oop-guide')
+project(':madvirus-tdd-book').projectDir = file('study/madvirus-tdd-book')
 project(':dzone-article').projectDir = file('study/dzone-article')
 project(':dzone-interation-recursion').projectDir = file('benchmark-modules/dzone-interation-recursion')
 project(':reactive-programming-with-reactor3').projectDir = file('reactive-modules/reactive-programming-with-reactor3')
