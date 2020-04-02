@@ -49,9 +49,7 @@ class Shape {
   static create(x, y) {
     return new Shape(x, y);
   }
-  // 구문오류 발생으로 주석처리
-  // SyntaxError: Unexpected token
-  // name = 'Shape';
+  name = 'Shape';
 
   constructor(x, y) {
     this.move(x, y);
