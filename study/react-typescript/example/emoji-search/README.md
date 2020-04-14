@@ -1,3 +1,5 @@
+Fork from : https://github.com/ahfarmer/emoji-search
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
