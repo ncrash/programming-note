@@ -25,14 +25,13 @@ export default function calculate(obj, buttonName) {
     if (buttonName === "0" && obj.next === "0") {
       return {};
     }
-
     // If there is an operation, update next
     if (obj.operation) {
       if (obj.next) {
         return { next: obj.next + buttonName };
       }
+      return { next: buttonName };
     }
-
     // If there is no operation, update next and clear the value
     if (obj.next) {
       const next = obj.next === "0" ? buttonName : obj.next + buttonName;
@@ -41,7 +40,6 @@ export default function calculate(obj, buttonName) {
         total: null,
       };
     }
-
     return {
       next: buttonName,
       total: null,
@@ -116,7 +114,7 @@ export default function calculate(obj, buttonName) {
     };
   }
 
-  // no operation yet. but the user typed one
+  // no operation yet, but the user typed one
 
   // The user hasn't typed a number yet, just save the operation
   if (!obj.next) {

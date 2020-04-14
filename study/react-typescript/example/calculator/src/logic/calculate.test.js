@@ -151,9 +151,9 @@ describe("calculate", function () {
   });
 
   // the percentage sign should also act as '='
-  //   test(["2", "x", "2", "%"], {
-  //     total: "0.04",
-  //   });
+  test(["2", "x", "2", "%"], {
+    total: "0.04",
+  });
 
   //Test that pressing the multiplication or division sign multiple times should not affect the current computation
   test(["2", "x", "x"], {
