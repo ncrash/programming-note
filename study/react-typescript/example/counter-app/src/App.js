@@ -49,7 +49,7 @@ export default class App extends Component {
     return (
       <div>
         <NavBar
-          totalCounters={this.state.counter.filter((c) => c.value > 0).length}
+          totalCounters={this.state.counters.filter((c) => c.value > 0).length}
         />
         <main className="container">
           <Counters

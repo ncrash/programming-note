@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Counter extends Component {
+export default class Counter extends Component {
   render() {
     return (
       <div>
@@ -35,17 +35,15 @@ class Counter extends Component {
       </div>
     );
   }
+
+  getBadgeClasses = () => {
+    let classes = "badge m-2 badge-";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
+    return classes;
+  };
+
+  formatCount = () => {
+    const { value } = this.props.counter;
+    return value === 0 ? "Zero" : value;
+  };
 }
-
-getBadgeClasses = () => {
-  let classes = "badge m-2 badge-";
-  classes += this.props.counter.value === 0 ? "warning" : "primary";
-  return classes;
-};
-
-formatCount = () => {
-  const { value } = this.props.counter;
-  return value === 0 ? "Zero" : value;
-};
-
-export default Counter;
