@@ -2,7 +2,12 @@ apply from: "${gradleScriptDir}/dependency.gradle"
 
 dependencies {
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.0'
+	// https://projectlombok.org/setup/gradle
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+	
+	testCompileOnly 'org.projectlombok:lombok:1.18.12'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 
 	// https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
 	compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.4.2.Final'
@@ -12,5 +17,4 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/org.glassfish/javax.el
 	compile group: 'org.glassfish', name: 'javax.el', version: '3.0.0'
-
 }

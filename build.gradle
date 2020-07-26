@@ -48,7 +48,7 @@ buildscript {
 plugins {
     // Apply the java plugin to add support for Java
     id 'java-library'
-    id "com.diffplug.gradle.spotless" version "3.13.0"
+    id "com.diffplug.gradle.spotless" version "3.30.0"
     id "com.github.johnrengelman.shadow" version "4.0.3"
 }
 
@@ -56,3 +56,10 @@ apply from: "${gradleScriptDir}/default.gradle"
 apply from: "${gradleScriptDir}/sonarqube.gradle"
 apply from: "${gradleScriptDir}/spotless.gradle"
 
+subprojects {
+    //Put instructions for each sub project
+    apply plugin: "java"
+    repositories {
+        mavenCentral()
+    }
+}

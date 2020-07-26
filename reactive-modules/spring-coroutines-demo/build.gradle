@@ -14,7 +14,12 @@ buildscript {
 	}
 }
 
-apply plugin: 'kotlin'
+plugins {
+    // Apply the Kotlin JVM plugin to add support for Kotlin.
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+}
+
+//apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'

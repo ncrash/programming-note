@@ -64,13 +64,4 @@ configure(allprojects.findAll { allprojects -> allprojects.name.contains('-') })
             url "http://repository.mxhero.com/nexus/content/repositories/org.mxhero.releases/"
         }
     }
-
-    // 서브 프로젝트 src/main/java, src/main/resources, src/test/java, src/test/resources 폴더 만들기
-    task initSrc << {
-        project.sourceSets*.allSource.srcDirTrees.flatten().dir.each { dir ->
-            if (project.name.contains("-") && !project.name.equals(rootProject.name)) {
-                dir.mkdirs()
-            }
-        }
-    }
 }

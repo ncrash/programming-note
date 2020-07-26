@@ -92,7 +92,9 @@ public class PersonServiceTest {
         assertThat(response.getFirstName(), is("호진"));
         assertThat(response.getLastName(), is("이"));
         assertThat(response.getGender(), is(Gender.MALE));
-        assertThat(response.getAge(), is(36L));
+        
+        //FIXME 매년 깨지는 테스트 - 나이를 해가 바뀌면 업데이트 해줘야하는데 현재년도 - 1983 계산으로 변경
+        assertThat(response.getAge(), is(37L));
     }
 
     @Test

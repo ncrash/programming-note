@@ -6,7 +6,7 @@ include 'hibernate-validator-4'
 include 'hibernate-validator-5'
 include 'hibernate-validator-6'
 include 'spring-retry'
-//include 'spring-restdocs'
+include 'spring-restdocs'
 include 'spring-boot-swagger'
 include 'spring-boot-whiteship-lecture'
 include 'tody-spring-reactive-programming'
@@ -16,13 +16,15 @@ include 'dzone-article'
 include 'dzone-interation-recursion'
 include 'reactive-programming-with-reactor3'
 include 'spring-coroutines-demo'
+include 'sparkjava'
+include 'handlebars'
 
 project(':selenium-junit').projectDir = file('testing-modules/selenium-junit')
 project(':hibernate-validator-4').projectDir = file('hibernate-modules/hibernate-validator-4')
 project(':hibernate-validator-5').projectDir = file('hibernate-modules/hibernate-validator-5')
 project(':hibernate-validator-6').projectDir = file('hibernate-modules/hibernate-validator-6')
 project(':spring-retry').projectDir = file('spring-modules/spring-retry')
-//project(':spring-restdocs').projectDir = file('spring-modules/spring-restdocs')
+project(':spring-restdocs').projectDir = file('spring-modules/spring-restdocs')
 project(':spring-boot-swagger').projectDir = file('spring-modules/spring-boot-swagger')
 project(':spring-boot-whiteship-lecture').projectDir = file('spring-modules/spring-boot-whiteship-lecture')
 project(':tody-spring-reactive-programming').projectDir = file('study/tody-spring-reactive-programming')
@@ -32,13 +34,6 @@ project(':dzone-article').projectDir = file('study/dzone-article')
 project(':dzone-interation-recursion').projectDir = file('benchmark-modules/dzone-interation-recursion')
 project(':reactive-programming-with-reactor3').projectDir = file('reactive-modules/reactive-programming-with-reactor3')
 project(':spring-coroutines-demo').projectDir = file('reactive-modules/spring-coroutines-demo')
+project(':sparkjava').projectDir = file('web-modules/sparkjava')
+project(':handlebars').projectDir = file('web-modules/handlebars')
 
-
-//FIXME 다른 모듈과 동일한 방식으로 선언하는 경우 아래 오류발생.
-//Could not find method compile() for arguments [{group=org.slf4j, name=slf4j-api, version=1.7.25}] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
-include 'web-modules/sparkjava'
-include 'web-modules/handlebars'
-//include 'sparkjava'
-//include 'handlebars'
-//project(':sparkjava').projectDir = file('web-modules/sparkjava')
-//project(':handlebars').projectDir = file('web-modules/handlebars')
