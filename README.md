@@ -14,12 +14,7 @@
 
 * 새로운 서브모듈 생성 시 `Build Init Plugin` 명령으로 프로젝트 초기화
 * https://docs.gradle.org/current/userguide/build_init_plugin.html
-
-```$ gradle init --type java-library```
-
-```$ gradle init --type kotlin-application```
-
-```$ gradle init --type scala-library```
-
-```$ gradle init --type groovy-library```
-  
+```
+$ gradle init --type java-library
+$ gradle init --type kotlin-application
+```
