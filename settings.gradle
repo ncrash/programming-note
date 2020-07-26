@@ -36,4 +36,3 @@ project(':reactive-programming-with-reactor3').projectDir = file('reactive-modul
 project(':spring-coroutines-demo').projectDir = file('reactive-modules/spring-coroutines-demo')
 project(':sparkjava').projectDir = file('web-modules/sparkjava')
 project(':handlebars').projectDir = file('web-modules/handlebars')
-

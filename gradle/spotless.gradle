@@ -1,29 +1,40 @@
 // 블로그 참고글 : https://nesoy.github.io/articles/2020-04/Spotless
 
 spotless {
-    java {
-        // 사용하지 않는 import 제거
-        removeUnusedImports()
-        // 공백 제거
-        trimTrailingWhitespace()
-        // 스페이스로 들여쓰기 처리
-        indentWithSpaces(4)
-        // 끝부분 NewLine 처리
-        endWithNewline()
+	java {
+		// 사용하지 않는 import 제거
+		removeUnusedImports()
+		// 공백 제거
+		trimTrailingWhitespace()
+		// 스페이스로 들여쓰기 처리
+		indentWithSpaces(4)
+		// 끝부분 NewLine 처리
+		endWithNewline()
 
-        /**
-         * 자동으로 라이센스 추가
-         */
-        licenseHeader '/* Licensed under Apache Corp */'
+		/**
+		* 자동으로 라이센스 추가
+		*/
+		licenseHeader '/* Licensed under Apache Corp */'
 
-        /**
-         * import 순서도 정의가 가능하다.
-         */
-        importOrder 'java', 'javax', 'org', 'com', 'com.diffplug', ''
+		/**
+		* import 순서도 정의가 가능하다.
+		*/
+		importOrder 'java', 'javax', 'org', 'com', 'com.diffplug', ''
 
-        /**
-         * Google Java Format을 쉽게 적용할 수 있다.
-         */
-        googleJavaFormat()
-    }
+		/**
+		* Google Java Format을 쉽게 적용할 수 있다.
+		*/
+		googleJavaFormat()
+	}
+
+	/**
+	* 특정 파일에 대해 적용할 수 있다.
+	*/
+	format 'misc', {
+		target '**/*.gradle', '**/.gitignore'
+
+		trimTrailingWhitespace()
+		indentWithTabs()
+		endWithNewline()
+	}
 }

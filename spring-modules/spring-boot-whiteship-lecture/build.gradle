@@ -1,14 +1,14 @@
 buildscript {
-        repositories {
-                mavenCentral()
-                maven {
-                    url "https://plugins.gradle.org/m2/"
-                }
-        }
-        dependencies {
-                classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-                classpath "io.freefair.gradle:lombok-plugin:5.1.0"
-        }
+		repositories {
+				mavenCentral()
+				maven {
+					url "https://plugins.gradle.org/m2/"
+				}
+		}
+		dependencies {
+				classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+				classpath "io.freefair.gradle:lombok-plugin:5.1.0"
+		}
 }
 
 apply plugin: 'org.springframework.boot'
@@ -20,21 +20,21 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 dependencies {
-        implementation('org.springframework.boot:spring-boot-starter-web')
-        implementation('org.springframework.boot:spring-boot-starter-data-jpa')
-        implementation('org.springframework.boot:spring-boot-starter-security')
-        implementation('org.modelmapper:modelmapper:0.7.4')
-        implementation('org.webjars:react:0.13.3')
-        implementation('org.webjars:bootstrap:3.3.5')
+		implementation('org.springframework.boot:spring-boot-starter-web')
+		implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+		implementation('org.springframework.boot:spring-boot-starter-security')
+		implementation('org.modelmapper:modelmapper:0.7.4')
+		implementation('org.webjars:react:0.13.3')
+		implementation('org.webjars:bootstrap:3.3.5')
 
-        // https://mvnrepository.com/artifact/javax.xml.ws/jaxws-api
-        implementation group: 'javax.xml.ws', name: 'jaxws-api', version: '2.3.1'
+		// https://mvnrepository.com/artifact/javax.xml.ws/jaxws-api
+		implementation group: 'javax.xml.ws', name: 'jaxws-api', version: '2.3.1'
 
-        // https://mvnrepository.com/artifact/org.hsqldb/hsqldb
-        runtimeOnly group: 'org.hsqldb', name: 'hsqldb', version: '2.4.1'
+		// https://mvnrepository.com/artifact/org.hsqldb/hsqldb
+		runtimeOnly group: 'org.hsqldb', name: 'hsqldb', version: '2.4.1'
 
-        testImplementation('org.springframework.boot:spring-boot-starter-test')
+		testImplementation('org.springframework.boot:spring-boot-starter-test')
 
-        // https://mvnrepository.com/artifact/org.springframework.security/spring-security-test
-        testImplementation('org.springframework.security:spring-security-test')
+		// https://mvnrepository.com/artifact/org.springframework.security/spring-security-test
+		testImplementation('org.springframework.security:spring-security-test')
 }

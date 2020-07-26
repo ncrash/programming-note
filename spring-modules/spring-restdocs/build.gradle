@@ -3,8 +3,8 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-                classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-                classpath "io.freefair.gradle:lombok-plugin:5.1.0"
+				classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+				classpath "io.freefair.gradle:lombok-plugin:5.1.0"
 	}
 }
 
