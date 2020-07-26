@@ -6,7 +6,7 @@ include 'hibernate-validator-4'
 include 'hibernate-validator-5'
 include 'hibernate-validator-6'
 include 'spring-retry'
-#include 'spring-restdocs'
+//include 'spring-restdocs'
 include 'spring-boot-swagger'
 include 'spring-boot-whiteship-lecture'
 include 'tody-spring-reactive-programming'
@@ -22,7 +22,7 @@ project(':hibernate-validator-4').projectDir = file('hibernate-modules/hibernate
 project(':hibernate-validator-5').projectDir = file('hibernate-modules/hibernate-validator-5')
 project(':hibernate-validator-6').projectDir = file('hibernate-modules/hibernate-validator-6')
 project(':spring-retry').projectDir = file('spring-modules/spring-retry')
-#project(':spring-restdocs').projectDir = file('spring-modules/spring-restdocs')
+//project(':spring-restdocs').projectDir = file('spring-modules/spring-restdocs')
 project(':spring-boot-swagger').projectDir = file('spring-modules/spring-boot-swagger')
 project(':spring-boot-whiteship-lecture').projectDir = file('spring-modules/spring-boot-whiteship-lecture')
 project(':tody-spring-reactive-programming').projectDir = file('study/tody-spring-reactive-programming')
