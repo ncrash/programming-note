@@ -29,5 +29,5 @@ dependencies {
 	testImplementation group: 'junit', name: 'junit', version: '4.13'
 
 	// https://mvnrepository.com/artifact/org.assertj/assertj-core
-	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
+	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.+'
 }
