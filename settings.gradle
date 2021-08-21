@@ -2,6 +2,7 @@ rootProject.name = 'programming-note'
 
 // include one project whose project dir does not match the logical project path
 include 'selenium-junit'
+include 'spock-testing-demo'
 include 'hibernate-validator-4'
 include 'hibernate-validator-5'
 include 'hibernate-validator-6'
@@ -20,6 +21,7 @@ include 'sparkjava'
 include 'handlebars'
 
 project(':selenium-junit').projectDir = file('testing-modules/selenium-junit')
+project(':spock-testing-demo').projectDir = file('testing-modules/spock-testing-demo')
 project(':hibernate-validator-4').projectDir = file('hibernate-modules/hibernate-validator-4')
 project(':hibernate-validator-5').projectDir = file('hibernate-modules/hibernate-validator-5')
 project(':hibernate-validator-6').projectDir = file('hibernate-modules/hibernate-validator-6')
